@@ -21,17 +21,132 @@
 %DCData_lib( NCDB )
 %DCData_lib( MVT )
 
+%macro Compile_mvt_data (geo, geosuf);
+** Define time periods  1990, 2000, 2010, 2012-2016 across data**;
 
-** Define time periods  **;
-%let _years = 2012_16;
-%let year_lbl = 2012-16;
+/*I removed the macro here, so you may need to add some semi colons etc*
+Goal: create new compilation of updated variable names for MVT using format from BPK. EX: ACS 2012-2016 var names
 
-/*I removed the macro here, so you may need to add some semi colons etc*/
-data compile_bpk_tabs2_&geosuf;
-	merge 
-		ACS.acs_2011_15_dc_sum_tr_tr10
-			(keep= &geo
-				popincivlaborforce_&_years.
+ACS.acs_2012_16_dc_sum_tr_tr10_&geosuf vs. ACS.acs_2012_16_dc_sum_&geosuf */ 
+data compile_mvt_tabs;
+	merge	ACS.acs_2012_16_dc_sum_tr_tr10_&geosuf
+			(keep= &geo 
+
+			TotPop_2012_16
+			NumHshlds_2012_16
+
+			PopWithRace_2012_16
+			PopBlackNonHispBridge_2012_16
+			PopWhiteNonHispBridge_2012_16
+			PopHisp_2012_16
+			PopAsianPINonHispBridge_2012_16
+			PopOtherNonHispBridge_2012_16
+			PopForeignBorn_2012_16
+
+			PopEmployedWorkers_2012_16
+			PopEmployedByInd_2012_16
+			PopEmployedAgric_2012_16
+			PopEmployedConstr_2012_16
+			PopEmployedManuf_2012_16
+			PopEmployedWhlsale_2012_16
+			PopEmployedRetail_2012_16
+			PopEmployedTransprt_2012_16
+			PopEmployedInfo_2012_16
+			PopEmployedFinance_2012_16
+			PopEmployedProfServ_2012_16
+			PopEmployedEduction_2012_16
+			PopEmployedArts_2012_16
+			PopEmployedOther_2012_16
+			PopEmployedPubAdmin_2012_16
+
+			Pop16andOverYears_2012_16
+			PopInCivLaborForce_2012_16
+			PopCivilianEmployed_2012_16
+			PopUnemployed_2012_16
+
+			Pop25andOverYears_2012_16
+			Pop25andOverWoutHS_2012_16
+			Pop25andOverWHS_2012_16
+			Pop25andOverWSC_2012_16
+			Pop25andOverWCollege_2012_16
+
+			PersonsPovertyDefined_2012_16
+			PopPoorPersons_2012_16
+
+			NumHsgUnits_2012_16
+			NumOccupiedHsgUnits_2012_16
+			NumOwnerOccupiedHU_2012_16
+			NumOwnerOccupiedHsgUnits_2012_16
+			NumRenterOccupiedHU_2012_16
+			NumRenterOccupiedHsgUnit_2012_16
+			
+			GrossRentLT100_2012_16
+			GrossRent100_149_2012_16
+			GrossRent150_199_2012_16
+			GrossRent200_249_2012_16
+			GrossRent250_299_2012_16
+			GrossRent300_349_2012_16
+			GrossRent350_349_2012_16 /*incorrect var name*/
+			GrossRent400_449_2012_16
+			GrossRent450_499_2012_16
+			GrossRent500_549_2012_16
+			GrossRent550_599_2012_16
+			GrossRent600_649_2012_16
+			GrossRent650_699_2012_16
+			GrossRent700_749_2012_16
+			GrossRent750_799_2012_16
+			GrossRent800_899_2012_16
+			GrossRent900_999_2012_16
+			GrossRent1000_1249_2012_16
+			GrossRent1250_1499_2012_16
+			GrossRent1500_1999_2012_16
+			GrossRent2000_2499_2012_16
+			GrossRent2500_2999_2012_16
+			GrossRent3000_3499_2012_16
+			GrossRentGT3500_2012_16
+			GrossRentNoCash_2012_16
+
+			NumRenterCostBurden_2012_16
+			NumRentSevereCostBurden_2012_16
+			NumOwnerCostBurden_2012_16
+			NumOwnSevereCostBurden_2012_16
+
+			NumRentCstBurden_15_24_2012_16
+			NumRentCstBurden_25_34_2012_16
+			NumRentCstBurden_35_64_2012_16
+			NumRentCstBurden_65Over_2012_16
+			NumOwnCstBurden_15_24_2012_16
+			NumOwnCstBurden_25_34_2012_16
+			NumOwnCstBurden_35_64_2012_16
+			NumOwnCstBurden_65Over_2012_16
+
+			NumRentCstBurden_LT10K_2012_16
+			NumRentCstBurden_10_19K_2012_16
+			NumRentCstBurden_20_34K_2012_16
+			NumRentCstBurden_35_49K_2012_16
+			NumRentCstBurden_50_74K_2012_16
+			NumRentCstBurden_75_99K_2012_16
+			NumRentCstBurden_GT100K_2012_16
+			NumOwnCstBurden_LT10K_2012_16
+			NumOwnCstBurden_10_19K_2012_16
+			NumOwnCstBurden_20_34K_2012_16
+			NumOwnCstBurden_35_49K_2012_16
+			NumOwnCstBurden_50_74K_2012_16
+			NumOwnCstBurden_75_99K_2012_16
+			NumOwnCstBurden_100_149_2012_16
+			NumOwnCstBurden_GT150K_2012_16)
+
+		
+		NCDB.Ncdb_sum_&geosuf
+			(keep= &geo totpop_1990 totpop_2000 
+				numoccupiedhsgunits_1990 numoccupiedhsgunits_2000)
+
+		NCDB.Ncdb_sum_2010_&geosuf
+			(keep= &geo totpop_2010 numoccupiedhsgunits_2010); 
+
+			/*NEED: Housing Tenure, Poverty Rate x People receiving SNAP/TANF, Assisted Housing Units in DC Prescat */
+
+			/*popincivlaborforce_&_years.
 				pop16andoveryears_&_years. popcivilianemployed_&_years. popunemployed_&_years. 
 				poppoorpersons_&_years. personspovertydefined_&_years. popwithrace_&_years. 
 				PopEmployedTravel_&_years. PopEmployedTravel_LT5_&_years.
@@ -50,7 +165,6 @@ data compile_bpk_tabs2_&geosuf;
 				NumOwnCstBurden_50_74K_&_years. NumOwnCstBurden_75_99K_&_years. 
 				NumOwnCstBurden_100_149_&_years. NumOwnCstBurden_GT150K_&_years.
 				MedFamIncm_&_years. )
-
 
 		Acs.Acs_2011_15_dc_sum_bg_&geosuf
 			(keep= &geo 
@@ -104,12 +218,12 @@ data compile_bpk_tabs2_&geosuf;
 			(keep= &geo units_sf_2000 units_sf_2001 units_sf_2002 
 				units_sf_2003 units_sf_2004 units_sf_2005 units_sf_2006 units_sf_2007 
 				units_sf_2008 units_sf_2009 units_sf_2010 units_sf_2011 units_sf_2012 
-				units_sf_2013 units_sf_2014 units_sf_2015 units_sf_2016
+				units_sf_2013 units_sf_2014 units_sf_2015 units_sf_2016 units_sf_2017 units_sf_2018
 
 				units_condo_2000 units_condo_2001 units_condo_2002
 				units_condo_2003 units_condo_2004 units_condo_2005 units_condo_2006 units_condo_2007 
 				units_condo_2008 units_condo_2009 units_condo_2010 units_condo_2011 units_condo_2012 
-				units_condo_2013 units_condo_2014 units_condo_2015 units_condo_2016)
+				units_condo_2013 units_condo_2014 units_condo_2015 units_condo_2016 units_condo_2017 units_condo_2018)
 					
 		RealProp.sales_sum_&geosuf 
 			(keep= &geo sales_sf_2000 sales_sf_2001
@@ -154,21 +268,21 @@ data compile_bpk_tabs2_&geosuf;
 				crime_rate_pop_2004 crime_rate_pop_2005 crime_rate_pop_2006 crime_rate_pop_2007 
 				crime_rate_pop_2008 crime_rate_pop_2009 crime_rate_pop_2010 crime_rate_pop_2011 
 				crime_rate_pop_2012 crime_rate_pop_2013 crime_rate_pop_2014 crime_rate_pop_2015 
-				crime_rate_pop_2016)
-		
-		NCDB.Ncdb_sum_&geosuf
-			(keep= &geo totpop_1990 totpop_2000 
-				numoccupiedhsgunits_1990 numoccupiedhsgunits_2000)
-
-		NCDB.Ncdb_sum_2010_&geosuf
-			(keep= &geo totpop_2010 numoccupiedhsgunits_2010); 
+				crime_rate_pop_2016)*/
 
 		by Geo2010 /*this is the tract indicator in ACS file, you may need rename variables in other data sets*/;
 run;
-
+/*
 %File_info( data=compile_bpk_tabs2_&geosuf, contents=n, printobs=0 )
 
 proc export data=bpk_tabs2_&geosuf
 	outfile="&_dcdata_default_path\BridgePk\Data\bpktabs2_&geosuf..csv"
 	dbms=csv replace;
-	run;
+	run;*/
+
+%mend Compile_mvt_data;
+
+
+%Compile_bpk_data (bridgepk, bpk);
+%Compile_bpk_data (ward2012, wd12);
+%Compile_bpk_data (city, city);
