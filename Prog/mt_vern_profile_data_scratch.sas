@@ -412,9 +412,8 @@ data compile_mvt_tabs_tr10_select;
 	set compile_mvt_tabs_tr10;
 	if Geo2010 in("11001004701","11001004702") then target = 1;
 	if Geo2010 in("11001004701","11001004702","11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then target_adj = 1;
-if Geo2010 not in("11001004701","11001004702","11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then delete;
+	if Geo2010 not in("11001004701","11001004702","11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then delete;
 	
-
 run;
 
 **Keep relevant wards**;
@@ -430,13 +429,24 @@ data compile_mvt_tabs_wd12_select;
 run;
 
 **Summarize data by whether they are target or target adjacent tracts**;
-proc sort data = compile_mvt_tabs_tr10_select; by target; run;
 
-proc summary data = compile_mvt_tabs_tr10_select; output out = compile_mvt_tabs_tr10_sum sum=; 
+
+proc means data=compile_mvt_tabs_wd12_select sum;
 by target;
+output out=compile_mvt_tabs_wd12_sum sum=;
 run;
 
-proc summary data = compile_mvt_tabs_tr10_select output out = compile_mvt_tabs_tr10_sum sum=;
+proc print data=compile_mvt_tabs_wd12_sum;
+run; 
+
+
+proc sort data = compile_mvt_tabs_tr10_select; by target; run;
+proc summary data = compile_mvt_tabs_tr10_select; 
+	by target;
+output out = compile_mvt_tabs_tr10_select;
+run;
+
+proc summary data = compile_mvt_tabs_tr10, out = compile_mvt_tabs_tr10;
 	by target_adj;
 run;
 
