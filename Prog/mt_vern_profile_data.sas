@@ -154,6 +154,10 @@
 				births_total_2007 births_total_2008 births_total_2009 births_total_2010 births_total_2011
 				births_total_2012 births_total_2013 births_total_2014 births_total_2015 births_total_2016
 
+				births_w_race_2003 births_w_race_2004 births_w_race_2005 births_w_race_2006
+				births_w_race_2007 births_w_race_2008 births_w_race_2009 births_w_race_2010 births_w_race_2011
+				births_w_race_2012 births_w_race_2013 births_w_race_2014 births_w_race_2015 births_w_race_2016
+
 				births_white_2003 births_white_2004 births_white_2005 births_white_2006
 				births_white_2007 births_white_2008 births_white_2009 births_white_2010 births_white_2011
 				births_white_2012 births_white_2013 births_white_2014 births_white_2015 births_white_2016 
@@ -286,11 +290,11 @@ run;
 
 %macro Compile_mvt_data (geo, geosuf);
 
-proc sort data=project out = project_tab_&geo;
+proc sort data=project out = project_tab_&geosuf;
 	by &geo;
 run;
 
-proc tabulate data = project_tab_&geo out = project_&geo;
+proc tabulate data = project_tab_&geosuf out = project_&geosuf;
 where status = 'A';
 class &geo;
 var Proj_Units_Assist_Min Proj_Units_Assist_Max ;
@@ -327,7 +331,7 @@ data compile_mvt_tabs_&geosuf;
 		RealProp.num_units_&geosuf 
 			(keep= &geo &unit_vars)
 
-		project_&geo (keep = &geo &subs_vars);
+		project_&geosuf (keep = &geo &subs_vars);
 
 		by &geo;
 				
@@ -341,11 +345,11 @@ data sales_res;
 	saleyear=year(saledate);
 run;
 
-proc sort data=sales_res_year;
+proc sort data=sales_res;
 	by &geo;
 run;
 
-proc tabulate data = sales_res_year out = price_tab_&geosuf;
+proc tabulate data = sales_res out = price_tab_&geosuf;
 class &geo saleyear;
 var saleprice ;
 table &geo, saleyear *(median) *saleprice;
@@ -356,15 +360,17 @@ proc transpose data=price_tab_&geosuf out=price_&geosuf prefix=mprice;
     id saleyear;
     var saleprice_median;
 run;
-	
+
+%if &geo = ward2012 %then %do;	
 data compile_mvt_tabs_wd12;
 	merge compile_mvt_tabs_wd12 price_wd12 (keep= &geo &price_vars);
-run;
-
+	by &geo;
+run; %end;
+%else %if &geo = city %then %do;
 data compile_mvt_tabs_city;
 	merge compile_mvt_tabs_city price_city (keep= &geo &price_vars);
-run;
-
+	by &geo;
+run; %end;
 %mend Compile_mvt_data;
 
 
@@ -378,12 +384,12 @@ data compile_mvt_tabs_tr10_select;
 	set compile_mvt_tabs_tr10;
 	if Geo2010 in("11001004701","11001004702") then target = 1;
 	if Geo2010 in("11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then target = 2;
-if Geo2010 not in("11001004701","11001004702","11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then delete;
+	if Geo2010 not in("11001004701","11001004702","11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then delete;
 run;
 
 data compile_mvt_tabs_wd12_select;
 	set compile_mvt_tabs_wd12;
-	if Ward2012 in("1","2","3","4","5") then delete;
+	if Ward2012 in("3","4","5","7","8") then delete;
 	geography = Ward2012;
 run;
 
@@ -604,16 +610,53 @@ proc transpose data=compile_mvt_tabs out=mvt_tabs(label="Bridge Park Tabulations
 			violent_crime_rate_2017;
 id geography; 
 run; 
+
+proc sort data = compile_mvt_tabs;
+	by geography;
+run;
+
 /*
-ods tagsets.excelxp file="D:\Users\MCohen\Box Sync\MCohen\MVT\mvtprofile.xls" 
+ods tagsets.excelxp file="D:\Users\MCohen\Box Sync\MCohen\MVT Profile\mvtprofile.xls" 
       options( sheet_interval='' );
 ods listing close;
 
 ods tagsets.excelxp options( sheet_name="Population");
-proc print data= mvt_tabs label noobs;
-  var totpop1990 totpop2000 totpop2010;
-  by geography;
+proc print data= compile_mvt_tabs label noobs;
+  var geography totpop_1990 totpop_2000 totpop_2010 
+  		popwithrace_1990 popasianpinonhispbridge_1990 popblacknonhispbridge_1990 
+		popothernonhispbridge_1990 popwhitenonhispbridge_1990 popnativeamnonhispbridge_1990 pophisp_1990
+		popwithrace_2000 popasianpinonhispbridge_2000 popblacknonhispbridge_2000 popothernonhispbridge_2000
+		popwhitenonhispbridge_2000 popnativeamnonhispbridge_2000 pophisp_2000 popwithrace_2010
+		popasianpinonhispbridge_2010 popblacknonhispbridge_2010 popothernonhispbridge_2010 
+		popwhitenonhispbridge_2010 popnativeamnonhispbridge_2010 pophisp_2010;
+run;
 
+ods tagsets.excelxp options( sheet_name="Births");
+proc print data= compile_mvt_tabs label noobs;
+  var	geography births_total_2003 
+		births_total_2004 births_total_2005 births_total_2006 births_total_2007 births_total_2008 
+		births_total_2009 births_total_2010 births_total_2011 births_total_2012 births_total_2013 
+		births_total_2014 births_total_2015 births_total_2016;
+run;
+
+ods tagsets.excelxp options( sheet_name="Curr Race");
+proc print data= compile_mvt_tabs label noobs;
+  var	
+			PctWht&_years. 
+			PctBlk&_years.
+			PctHisp&_years.
+			PctAsn&_years.
+			PctOth&_years.;
+run;
+
+ods tagsets.excelxp options( sheet_name="Curr Race");
+proc print data= compile_mvt_tabs label noobs;
+  var	
+			PctWht&_years. 
+			PctBlk&_years.
+			PctHisp&_years.
+			PctAsn&_years.
+			PctOth&_years.;
 run;
 
 ods tagsets.excelxp close;
