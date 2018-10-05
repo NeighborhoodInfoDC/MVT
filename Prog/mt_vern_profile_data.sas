@@ -338,7 +338,7 @@ data compile_mvt_tabs_&geosuf;
 		Tanf.fs_sum_&geosuf
 			(keep=&geo &fs_vars)
 
-		RealProp.num_units_&geosuf 
+		RealPr_r.num_units_&geosuf 
 			(keep= &geo &unit_vars)
 
 		project_&geosuf (keep = &geo &subs_vars);
@@ -351,9 +351,11 @@ run;
 **Add Median Sales Price seperately as target area will need to be aggregated later**;
 
 data sales_res;
-	set realprop.sales_res_clean;
+	set realpr_r.sales_res_clean;
 	saleyear=year(saledate);
-	%dollar_convert( saleprice, sale_adj, 2003, 2017, series=CUUR0000SA0L2 )
+	
+			%dollar_convert( saleprice, sale_adj, saleyear, 2017, series=CUUR0000SA0L2 )
+
 run;
 
 proc sort data=sales_res;
@@ -445,7 +447,7 @@ data sales_res_target;
 	saleyear=year(saledate);
 	if Geo2010 in("11001004701","11001004702") then target = 1;
 	if Geo2010 in("11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then target = 2;
-	%dollar_convert( saleprice, sale_adj, 2003, 2017, series=CUUR0000SA0L2 )
+	%dollar_convert( saleprice, sale_adj, saleyear, 2017, series=CUUR0000SA0L2 )
 run;
 
 proc sort data=sales_res_target;
@@ -483,7 +485,7 @@ data compile_mvt_tabs_full;
 			PctBlk&_years. = popblacknonhispbridge&_years. / popwithrace&_years.;
 			PctHisp&_years. = pophisp&_years. / popwithrace&_years.;
 			PctAsn&_years. = popasianpinonhispbridge&_years. / popwithrace&_years.;
-			PctOth&_years. = popothernonhispbridg&_years. / popwithrace&_years.;
+			PctOth&_years. = popothernonhispbridge&_years. / popwithrace&_years.;
 
 		/*Education*/
 			PctHS&_years. = pop25andoverwhs&_years. / pop25andoveryears&_years.;
@@ -622,7 +624,9 @@ pcttanf_hsp_2003 = tanf_hisp_2003/tanf_w_race_2003; pcttanf_hsp_2004 = tanf_hisp
 			pcttanf_wht_2016 = tanf_white_2016/tanf_w_race_2016;
 
 
-
+if geography="1" then geography="Ward 1";
+if geography="2" then geography="Ward 2";
+if geography="6" then geography="Ward 6";
 
 run;
 
