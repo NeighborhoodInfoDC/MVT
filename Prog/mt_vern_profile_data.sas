@@ -1,8 +1,8 @@
 /**************************************************************************
  Program:  mt_vern_profile_data.sas
  Library:  MVT
- Project:  NeighborhoodInfo DC
- Author:   O. Arena
+ Project:  Urban-Greater DC
+ Author:   O. Arena, M. Cohen
  Created:  08/30/18
  Version:  SAS 9.2
  Environment:  Local Windows session
@@ -23,6 +23,7 @@
 %DCData_lib( TANF )
 %DCData_lib( MVT )
 %DCData_lib( PresCat )
+%DCData_lib( Planning )
 
 ** Define time periods and variables **;
 %let _years = _2012_16;
@@ -396,6 +397,8 @@
 
 		%let subs_vars = Proj_Units_Assist_Min_Sum Proj_Units_Assist_Max_Sum;
 
+		%let plan_vars=tpop2010 tpop2015 tpop2020 tpop2025 tpop2030 tpop2035 tpop2040 tpop2045;
+
 
 data project;
 set prescat.project;
@@ -448,7 +451,9 @@ data compile_mvt_tabs_&geosuf;
 		RealPr_r.num_units_&geosuf 
 			(keep= &geo &unit_vars)
 
-		project_&geosuf (keep = &geo &subs_vars);
+		project_&geosuf (keep = &geo &subs_vars)
+
+		planning.Pop_forecast_r9_dc_&geosuf (keep= &geo &plan_vars);
 
 		by &geo;
 				
@@ -526,7 +531,7 @@ proc sort data = compile_mvt_tabs_tr10_select; by target; run;
 
 proc summary data = compile_mvt_tabs_tr10_select; output out = compile_mvt_tabs_target sum=; 
 	where target = 1;
-	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
 run;
 
 data compile_mvt_tabs_target_select;
@@ -537,7 +542,7 @@ data compile_mvt_tabs_target_select;
 run;
 
 proc summary data = compile_mvt_tabs_tr10_select ; output out = compile_mvt_tabs_target_adj sum=;
-	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
 run;
 
 data compile_mvt_tabs_adj_select;
@@ -969,7 +974,7 @@ run;
 **Transpose from wide to long data where observations are the indicators**;
 
 proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
-	var geography &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &birth_vars &tanf_vars &fs_vars &unit_vars &price_vars &subs_vars
+	var geography &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &birth_vars &tanf_vars &fs_vars &unit_vars &price_vars &subs_vars &plan_vars
 		/*Race and ethnicity*/
 			PctWht&_years.
 			PctBlk&_years.
@@ -1054,7 +1059,7 @@ ods listing close;
 
 ods tagsets.excelxp options( sheet_name="Population");
 proc print data= compile_mvt_tabs_full label noobs;
-  var geography totpop_1980 totpop_1990 totpop_2000 totpop_2010 
+  var geography totpop_1980 totpop_1990 totpop_2000 totpop_2010 tpop2010 tpop2015 tpop2020 tpop2025 tpop2030 tpop2035 tpop2040 tpop2045
   				pctchange_80_90 pctchange_90_00 pctchange_00_10 ;
 run;
 
