@@ -1059,7 +1059,7 @@ ods listing close;
 
 ods tagsets.excelxp options( sheet_name="Population");
 proc print data= compile_mvt_tabs_full label noobs;
-  var geography totpop_1980 totpop_1990 totpop_2000 totpop_2010 tpop2010 tpop2015 tpop2020 tpop2025 tpop2030 tpop2035 tpop2040 tpop2045
+  var geography totpop_1980 totpop_1990 totpop_2000 totpop_2010 tpop2015 tpop2020 tpop2025 tpop2030 tpop2035 tpop2040 tpop2045
   				pctchange_80_90 pctchange_90_00 pctchange_00_10 ;
 run;
 
