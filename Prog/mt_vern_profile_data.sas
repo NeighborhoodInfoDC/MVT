@@ -212,6 +212,8 @@
 	%let ncdb_vars = totpop_2010 popwithrace_2010 popasianpinonhispbridge_2010 popblacknonhispbridge_2010 popothernonhispbridge_2010 popmultiracialnonhisp_2010
 			popwhitenonhispbridge_2010 popnativeamnonhispbridge_2010 pophisp_2010 numoccupiedhsgunits_2010 totpop_2010 numoccupiedhsgunits_2010;
 
+	%let ncdb_1980 = SHRNHJ8N  shrnhj9n shrnhj0n shrnhi1n shrnha1n shrnho1n  SHR8D SHR9D SHR0D SHR1D;
+
 	%let birth_vars =births_total_2003 births_total_2004 births_total_2005 births_total_2006
 				births_total_2007 births_total_2008 births_total_2009 births_total_2010 births_total_2011
 				births_total_2012 births_total_2013 births_total_2014 births_total_2015 births_total_2016
@@ -407,7 +409,35 @@ format city $CITY16.;
 city = "1";
 run;
 
+/*compile 1980 asian data*/ 
+	data get1980race;
+		set ncdb.Ncdb_master_update (where=(ucounty='11001'));
+		keep geo2010  SHRNHJ8N  shrnhj9n shrnhj0n shrnhi1n shrnha1n shrnho1n 
+		SHR8D SHR9D SHR0D SHR1D;
 
+		
+	run;
+	%tr10_to_stdgeos(in_ds=get1980race, out_ds=get1980race2)
+
+	proc sort data=get1980race2;
+	by ward2012;
+	proc summary data=get1980race2;
+	by ward2012;
+	var  SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1an
+		SHR8D SHR9D SHR0D SHR1D;
+	output out=get1980race_wd12 sum=;
+	run;
+	proc sort data=get1980race2;
+	by city;
+	proc summary data=get1980race2;
+	by city;
+	var  SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1an
+		SHR8D SHR9D SHR0D SHR1D;
+	output out=get1980race_city sum=;
+	run;
+
+
+/*compile other data*/ 
 %macro Compile_mvt_data (geo, geosuf);
 
 proc sort data=project out = project_tab_&geosuf;
@@ -504,23 +534,33 @@ run; %end;
 %Compile_mvt_data (city, city);
 
 **Select out target areas**;
+ *merge in 1980 data;
+  proc sort data=compile_mvt_tabs_tr10;
+  by geo2010;
+  proc sort data=get1980race2;
+  by geo2010;
+  data compile_mvt_tabs_tr10_select (where=(target~=.));
+  	merge compile_mvt_tabs_tr10 get1980race2;
+	by geo2010;
 
-data compile_mvt_tabs_tr10_select;
-	set compile_mvt_tabs_tr10;
 	if Geo2010 in("11001004701","11001004702") then target = 1;
 	if Geo2010 in("11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then target = 2;
-	if Geo2010 not in("11001004701","11001004702","11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then delete;
-run;
+	run;
+	proc sort data=Get1980race_wd12;
+	by ward2012;
+	proc sort data=compile_mvt_tabs_wd12_full;
+	by ward2012;
 
-data compile_mvt_tabs_wd12_select;
-	set compile_mvt_tabs_wd12_full;
+ data compile_mvt_tabs_wd12_select;
+	merge compile_mvt_tabs_wd12_full Get1980race_wd12;
+	by Ward2012;
 	if Ward2012 in("3","4","5","7","8") then delete;
 	length geography $20.;
 	geography = Ward2012;
 run;
 
 data compile_mvt_tabs_city_select;
-	set compile_mvt_tabs_city_full;
+	merge compile_mvt_tabs_city_full Get1980race_city;
 	length geography $20.;
 	geography = "Washington DC";
 run;
@@ -531,7 +571,7 @@ proc sort data = compile_mvt_tabs_tr10_select; by target; run;
 
 proc summary data = compile_mvt_tabs_tr10_select; output out = compile_mvt_tabs_target sum=; 
 	where target = 1;
-	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980 &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
 run;
 
 data compile_mvt_tabs_target_select;
@@ -542,7 +582,7 @@ data compile_mvt_tabs_target_select;
 run;
 
 proc summary data = compile_mvt_tabs_tr10_select ; output out = compile_mvt_tabs_target_adj sum=;
-	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980 &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
 run;
 
 data compile_mvt_tabs_adj_select;
@@ -600,6 +640,7 @@ data compile_mvt_tabs_full;
 			PctMult&_years. = PopMultiRacialnonhisp&_years. / popwithrace&_years.;
 			PctNat&_years. = PopNativeAmnonhispbridge&_years. / popwithrace&_years.;
 			PctOth&_years. = popothernonhispbridge&_years. / popwithrace&_years.;
+
 
 		/*Education*/
 			PctHS&_years. = (pop25andoverwhs&_years.-pop25andoverwcollege&_years.) / pop25andoveryears&_years.;
@@ -852,6 +893,10 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			Pctchange_hsp_90_00 = (pophisp_2000-pophisp_1990)/pophisp_1990;
 			pctchange_hsp_00_10 = (pophisp_2010-pophisp_2000)/pophisp_2000;
 
+			Pctchange_alloth_80_90 =(shrnhj9n-SHRNHJ8N) / SHRNHJ8N;
+			Pctchange_alloth_90_00 =(shrnhj0n - shrnhj9n) /shrnhj9n;
+			Pctchange_alloth_00_10 =((shrnhi1n +shrnha1n + shrnho1n) - shrnhj0n)/shrnhj0n;
+
 			/*gross rent*/
 
 			grossrentunder500&_years. = GrossRentNoCash_2012_16 + GrossRentLT100_2012_16 +
@@ -936,9 +981,9 @@ label
 		PctOwnerOccupiedHU&_years. = "Owner"
 		PctRenterOccupiedHU&_years. = "Renter"
 		PctRenterCostBurden&_years. = "Cost-Burdened Renter"
-		PctRentSevereCostBurden&_years. = "Severly Cost-Burdened Renter"
+		PctRentSevereCostBurden&_years. = "Severely Cost-Burdened Renter"
 		PctOwnerCostBurden&_years. = "Cost-Burdened Owner"
-		PctOwnSevereCostBurden&_years. = "Severly Cost Burdened Owner"
+		PctOwnSevereCostBurden&_years. = "Severely Cost Burdened Owner"
 		pctchange_80_90 = "Population Change 1980-1990"
 		pctchange_90_00 = "Population Change 1990-2000"
 		pctchange_00_10 = "Population Change 2000-2010"
