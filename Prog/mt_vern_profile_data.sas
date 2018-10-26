@@ -196,7 +196,36 @@
 			NumOwnCstBurden_50_74K_2012_16
 			NumOwnCstBurden_75_99K_2012_16
 			NumOwnCstBurden_100_149_2012_16
-			NumOwnCstBurden_GT150K_2012_16;
+			NumOwnCstBurden_GT150K_2012_16
+
+
+			agghshldincome_2012_16
+			hshldinc100000plus_2012_16
+			hshldinc100000to124999_2012_16
+			hshldinc10000to14999_2012_16
+			hshldinc125000to149999_2012_16
+			hshldinc150000to199999_2012_16
+			hshldinc15000to19999_2012_16
+			hshldinc15000to34999_2012_16
+			hshldinc200000andover_2012_16
+			hshldinc200000plus_2012_16
+			hshldinc20000to24999_2012_16
+			hshldinc25000to29999_2012_16
+			hshldinc30000to34999_2012_16
+			hshldinc35000to39999_2012_16
+			hshldinc35000to49999_2012_16
+			hshldinc40000to44999_2012_16
+			hshldinc45000to49999_2012_16
+			hshldinc50000to59999_2012_16
+			hshldinc50000to74999_2012_16
+			hshldinc60000to74999_2012_16
+			hshldinc75000to99999_2012_16
+			hshldincunder10000_2012_16
+			hshldincunder15000_2012_16
+
+
+
+;
 
 	%let ncdbold_vars = totpop_1980 totpop_1990 popwithrace_1980 popblacknonhispbridge_1980 
 			 popwhitenonhispbridge_1980 pophisp_1980
@@ -1097,6 +1126,32 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			pct18_34aiom&_years. = pop18_34yearsaiom_2012_16/popaloneaiom_2012_16 ;
 			pct35_64aiom&_years. = pop35_64yearsaiom_2012_16/popaloneaiom_2012_16 ;
 			pcto65aiom&_years. = pop65andoveryearsaiom_2012_16/popaloneaiom_2012_16 ;
+
+			/*Income*/ 
+			pct_hshldinc100000plus_2012_16 = hshldinc100000plus_2012_16/agghshldincome_2012_16;
+			pct_hshldinc100000to124999_2012_16 = hshldinc100000to124999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc10000to14999_2012_16 = hshldinc10000to14999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc125000to149999_2012_16 = hshldinc125000to149999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc150000to199999_2012_16 = hshldinc150000to199999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc15000to19999_2012_16 = hshldinc15000to19999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc15000to34999_2012_16 = hshldinc15000to34999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc200000andover_2012_16 = hshldinc200000andover_2012_16/agghshldincome_2012_16;
+			pct_hshldinc200000plus_2012_16 = hshldinc200000plus_2012_16/agghshldincome_2012_16;
+			pct_hshldinc20000to24999_2012_16 = hshldinc20000to24999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc25000to29999_2012_16 = hshldinc25000to29999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc30000to34999_2012_16 = hshldinc30000to34999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc35000to39999_2012_16 = hshldinc35000to39999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc35000to49999_2012_16 = hshldinc35000to49999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc40000to44999_2012_16 = hshldinc40000to44999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc45000to49999_2012_16 = hshldinc45000to49999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc50000to59999_2012_16 = hshldinc50000to59999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc50000to74999_2012_16 = hshldinc50000to74999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc60000to74999_2012_16 = hshldinc60000to74999_2012_16/agghshldincome_2012_16;
+			pct_hshldinc75000to99999_2012_16 = hshldinc75000to99999_2012_16/agghshldincome_2012_16;
+			pct_hshldincunder10000_2012_16 = hshldincunder10000_2012_16/agghshldincome_2012_16;
+			pct_hshldincunder15000_2012_16 = hshldincunder15000_2012_16/agghshldincome_2012_16;
+
+
 
 label 
 
