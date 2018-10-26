@@ -291,6 +291,55 @@
 				births_prenat_inad_oth_2003 births_prenat_inad_oth_2004 births_prenat_inad_oth_2005 births_prenat_inad_oth_2006
 				births_prenat_inad_oth_2007 births_prenat_inad_oth_2008 births_prenat_inad_oth_2009 births_prenat_inad_oth_2010 births_prenat_inad_oth_2011
 				births_prenat_inad_oth_2012 births_prenat_inad_oth_2013 births_prenat_inad_oth_2014 births_prenat_inad_oth_2015 births_prenat_inad_oth_2016 
+
+				births_w_weight_2003 births_w_weight_2004 births_w_weight_2005 births_w_weight_2006	
+				births_w_weight_2007 births_w_weight_2008 births_w_weight_2009 births_w_weight_2010 births_w_weight_2011 
+				births_w_weight_2012 births_w_weight_2013 births_w_weight_2014 births_w_weight_2015 births_w_weight_2016
+
+				births_low_wt_2003 births_low_wt_2004 births_low_wt_2005 births_low_wt_2006	
+				births_low_wt_2007 births_low_wt_2008 births_low_wt_2009 births_low_wt_2010	births_low_wt_2011 
+				births_low_wt_2012 births_low_wt_2013 births_low_wt_2014 births_low_wt_2015 births_low_wt_2016 
+
+				births_low_wt_asn_2003 births_low_wt_asn_2004 births_low_wt_asn_2005 births_low_wt_asn_2006
+				births_low_wt_asn_2007 births_low_wt_asn_2008 births_low_wt_asn_2009 births_low_wt_asn_2010	births_low_wt_asn_2011 
+				births_low_wt_asn_2012 births_low_wt_asn_2013 births_low_wt_asn_2014 births_low_wt_asn_2015 births_low_wt_asn_2016
+
+				births_low_wt_blk_2003 births_low_wt_blk_2004 births_low_wt_blk_2005 births_low_wt_blk_2006
+				births_low_wt_blk_2007 births_low_wt_blk_2008 births_low_wt_blk_2009 births_low_wt_blk_2010 births_low_wt_blk_2011
+				births_low_wt_blk_2012 births_low_wt_blk_2013 births_low_wt_blk_2014 births_low_wt_blk_2015	births_low_wt_blk_2016
+
+				births_low_wt_hsp_2003 births_low_wt_hsp_2004 births_low_wt_hsp_2005 births_low_wt_hsp_2006
+				births_low_wt_hsp_2007 births_low_wt_hsp_2008 births_low_wt_hsp_2009 births_low_wt_hsp_2010 births_low_wt_hsp_2011
+				births_low_wt_hsp_2012 births_low_wt_hsp_2013 births_low_wt_hsp_2014 births_low_wt_hsp_2015	births_low_wt_hsp_2016
+
+				births_low_wt_oth_2003 births_low_wt_oth_2004 births_low_wt_oth_2005 births_low_wt_oth_2006
+				births_low_wt_oth_2007 births_low_wt_oth_2008 births_low_wt_oth_2009 births_low_wt_oth_2010 births_low_wt_oth_2011
+				births_low_wt_oth_2012 births_low_wt_oth_2013 births_low_wt_oth_2014 births_low_wt_oth_2015 births_low_wt_oth_2016
+
+				births_low_wt_wht_2003 births_low_wt_wht_2004 births_low_wt_wht_2005 births_low_wt_wht_2006
+				births_low_wt_wht_2007 births_low_wt_wht_2008 births_low_wt_wht_2009 births_low_wt_wht_2010	births_low_wt_wht_2011
+				births_low_wt_wht_2012 births_low_wt_wht_2013 births_low_wt_wht_2014 births_low_wt_wht_2015	births_low_wt_wht_2016
+
+				births_w_weight_asn_2003 births_w_weight_asn_2004 births_w_weight_asn_2005 births_w_weight_asn_2006
+				births_w_weight_asn_2007 births_w_weight_asn_2008 births_w_weight_asn_2009 births_w_weight_asn_2010	births_w_weight_asn_2011 
+				births_w_weight_asn_2012 births_w_weight_asn_2013 births_w_weight_asn_2014 births_w_weight_asn_2015	births_w_weight_asn_2016
+
+				births_w_weight_blk_2003 births_w_weight_blk_2004 births_w_weight_blk_2005 births_w_weight_blk_2006
+				births_w_weight_blk_2007 births_w_weight_blk_2008 births_w_weight_blk_2009 births_w_weight_blk_2010 births_w_weight_blk_2011
+				births_w_weight_blk_2012 births_w_weight_blk_2013 births_w_weight_blk_2014 births_w_weight_blk_2015 births_w_weight_blk_2016
+
+				births_w_weight_hsp_2003 births_w_weight_hsp_2004 births_w_weight_hsp_2005 births_w_weight_hsp_2006
+				births_w_weight_hsp_2007 births_w_weight_hsp_2008 births_w_weight_hsp_2009 births_w_weight_hsp_2010	births_w_weight_hsp_2011
+				births_w_weight_hsp_2012 births_w_weight_hsp_2013 births_w_weight_hsp_2014 births_w_weight_hsp_2015	births_w_weight_hsp_2016
+
+				births_w_weight_oth_2003 births_w_weight_oth_2004 births_w_weight_oth_2005 births_w_weight_oth_2006
+				births_w_weight_oth_2007 births_w_weight_oth_2008 births_w_weight_oth_2009 births_w_weight_oth_2010	births_w_weight_oth_2011
+				births_w_weight_oth_2012 births_w_weight_oth_2013 births_w_weight_oth_2014 births_w_weight_oth_2015 births_w_weight_oth_2016
+
+				births_w_weight_wht_2003 births_w_weight_wht_2004 births_w_weight_wht_2005 births_w_weight_wht_2006
+				births_w_weight_wht_2007 births_w_weight_wht_2008 births_w_weight_wht_2009 births_w_weight_wht_2010 births_w_weight_wht_2011
+				births_w_weight_wht_2012 births_w_weight_wht_2013 births_w_weight_wht_2014 births_w_weight_wht_2015 births_w_weight_wht_2016
+
 ;
 
 
@@ -731,7 +780,7 @@ pctbirths_hsp_2003 = births_hisp_2003/births_w_race_2003; pctbirths_hsp_2004 = b
 			pctbirths_wht_2015 = births_white_2015/births_w_race_2015;
 			pctbirths_wht_2016 = births_white_2016/births_w_race_2016;
 
-						pctbirths_oth_2003 = births_oth_rac_2003/births_w_race_2003;
+			pctbirths_oth_2003 = births_oth_rac_2003/births_w_race_2003;
 			pctbirths_oth_2004 = births_oth_rac_2004/births_w_race_2004;
 			pctbirths_oth_2005 = births_oth_rac_2005/births_w_race_2005;
 			pctbirths_oth_2006 = births_oth_rac_2006/births_w_race_2006;
@@ -745,6 +794,97 @@ pctbirths_hsp_2003 = births_hisp_2003/births_w_race_2003; pctbirths_hsp_2004 = b
 			pctbirths_oth_2014 = births_oth_rac_2014/births_w_race_2014;
 			pctbirths_oth_2015 = births_oth_rac_2015/births_w_race_2015;
 			pctbirths_oth_2016 = births_oth_rac_2016/births_w_race_2016;
+
+			/* Birth weights by rate*/
+			pctbirths_low_wt_2003 = births_low_wt_2003/births_w_weight_2003;
+			pctbirths_low_wt_2004 = births_low_wt_2004/births_w_weight_2004;
+			pctbirths_low_wt_2005 = births_low_wt_2005/births_w_weight_2005;
+			pctbirths_low_wt_2006 = births_low_wt_2006/births_w_weight_2006;
+			pctbirths_low_wt_2007 = births_low_wt_2007/births_w_weight_2007;
+			pctbirths_low_wt_2008 = births_low_wt_2008/births_w_weight_2008;
+			pctbirths_low_wt_2009 = births_low_wt_2009/births_w_weight_2009;
+			pctbirths_low_wt_2010 = births_low_wt_2010/births_w_weight_2010;
+			pctbirths_low_wt_2011 = births_low_wt_2011/births_w_weight_2011;
+			pctbirths_low_wt_2012 = births_low_wt_2012/births_w_weight_2012;
+			pctbirths_low_wt_2013 = births_low_wt_2013/births_w_weight_2013;
+			pctbirths_low_wt_2014 = births_low_wt_2014/births_w_weight_2014;
+			pctbirths_low_wt_2015 = births_low_wt_2015/births_w_weight_2015;
+			pctbirths_low_wt_2016 = births_low_wt_2016/births_w_weight_2016;
+
+			pctbirths_low_wt_asn_2003 = births_low_wt_asn_2003/births_w_weight_asn_2003;
+			pctbirths_low_wt_asn_2004 = births_low_wt_asn_2004/births_w_weight_asn_2004;
+			pctbirths_low_wt_asn_2005 = births_low_wt_asn_2005/births_w_weight_asn_2005;
+			pctbirths_low_wt_asn_2006 = births_low_wt_asn_2006/births_w_weight_asn_2006;
+			pctbirths_low_wt_asn_2007 = births_low_wt_asn_2007/births_w_weight_asn_2007;
+			pctbirths_low_wt_asn_2008 = births_low_wt_asn_2008/births_w_weight_asn_2008;
+			pctbirths_low_wt_asn_2009 = births_low_wt_asn_2009/births_w_weight_asn_2009;
+			pctbirths_low_wt_asn_2010 = births_low_wt_asn_2010/births_w_weight_asn_2010;
+			pctbirths_low_wt_asn_2011 = births_low_wt_asn_2011/births_w_weight_asn_2011;
+			pctbirths_low_wt_asn_2012 = births_low_wt_asn_2012/births_w_weight_asn_2012;
+			pctbirths_low_wt_asn_2013 = births_low_wt_asn_2013/births_w_weight_asn_2013;
+			pctbirths_low_wt_asn_2014 = births_low_wt_asn_2014/births_w_weight_asn_2014;
+			pctbirths_low_wt_asn_2015 = births_low_wt_asn_2015/births_w_weight_asn_2015;
+			pctbirths_low_wt_asn_2016 = births_low_wt_asn_2016/births_w_weight_asn_2016;
+
+			pctbirths_low_wt_blk_2003 = births_low_wt_blk_2003/births_w_weight_blk_2003;
+			pctbirths_low_wt_blk_2004 = births_low_wt_blk_2004/births_w_weight_blk_2004;
+			pctbirths_low_wt_blk_2005 = births_low_wt_blk_2005/births_w_weight_blk_2005;
+			pctbirths_low_wt_blk_2006 = births_low_wt_blk_2006/births_w_weight_blk_2006;
+			pctbirths_low_wt_blk_2007 = births_low_wt_blk_2007/births_w_weight_blk_2007;
+			pctbirths_low_wt_blk_2008 = births_low_wt_blk_2008/births_w_weight_blk_2008;
+			pctbirths_low_wt_blk_2009 = births_low_wt_blk_2009/births_w_weight_blk_2009;
+			pctbirths_low_wt_blk_2010 = births_low_wt_blk_2010/births_w_weight_blk_2010;
+			pctbirths_low_wt_blk_2011 = births_low_wt_blk_2011/births_w_weight_blk_2011;
+			pctbirths_low_wt_blk_2012 = births_low_wt_blk_2012/births_w_weight_blk_2012;
+			pctbirths_low_wt_blk_2013 = births_low_wt_blk_2013/births_w_weight_blk_2013;
+			pctbirths_low_wt_blk_2014 = births_low_wt_blk_2014/births_w_weight_blk_2014;
+			pctbirths_low_wt_blk_2015 = births_low_wt_blk_2015/births_w_weight_blk_2015;
+			pctbirths_low_wt_blk_2016 = births_low_wt_blk_2016/births_w_weight_blk_2016;
+
+			pctbirths_low_wt_hsp_2003 = births_low_wt_hsp_2003/births_w_weight_hsp_2003;
+			pctbirths_low_wt_hsp_2004 = births_low_wt_hsp_2004/births_w_weight_hsp_2004;
+			pctbirths_low_wt_hsp_2005 = births_low_wt_hsp_2005/births_w_weight_hsp_2005;
+			pctbirths_low_wt_hsp_2006 = births_low_wt_hsp_2006/births_w_weight_hsp_2006;
+			pctbirths_low_wt_hsp_2007 = births_low_wt_hsp_2007/births_w_weight_hsp_2007;
+			pctbirths_low_wt_hsp_2008 = births_low_wt_hsp_2008/births_w_weight_hsp_2008;
+			pctbirths_low_wt_hsp_2009 = births_low_wt_hsp_2009/births_w_weight_hsp_2009;
+			pctbirths_low_wt_hsp_2010 = births_low_wt_hsp_2010/births_w_weight_hsp_2010;
+			pctbirths_low_wt_hsp_2011 = births_low_wt_hsp_2011/births_w_weight_hsp_2011;
+			pctbirths_low_wt_hsp_2012 = births_low_wt_hsp_2012/births_w_weight_hsp_2012;
+			pctbirths_low_wt_hsp_2013 = births_low_wt_hsp_2013/births_w_weight_hsp_2013;
+			pctbirths_low_wt_hsp_2014 = births_low_wt_hsp_2014/births_w_weight_hsp_2014;
+			pctbirths_low_wt_hsp_2015 = births_low_wt_hsp_2015/births_w_weight_hsp_2015;
+			pctbirths_low_wt_hsp_2016 = births_low_wt_hsp_2016/births_w_weight_hsp_2016;
+
+			pctbirths_low_wt_oth_2003 = births_low_wt_oth_2003/births_w_weight_oth_2003;
+			pctbirths_low_wt_oth_2004 = births_low_wt_oth_2004/births_w_weight_oth_2004;
+			pctbirths_low_wt_oth_2005 = births_low_wt_oth_2005/births_w_weight_oth_2005;
+			pctbirths_low_wt_oth_2006 = births_low_wt_oth_2006/births_w_weight_oth_2006;
+			pctbirths_low_wt_oth_2007 = births_low_wt_oth_2007/births_w_weight_oth_2007;
+			pctbirths_low_wt_oth_2008 = births_low_wt_oth_2008/births_w_weight_oth_2008;
+			pctbirths_low_wt_oth_2009 = births_low_wt_oth_2009/births_w_weight_oth_2009;
+			pctbirths_low_wt_oth_2010 = births_low_wt_oth_2010/births_w_weight_oth_2010;
+			pctbirths_low_wt_oth_2011 = births_low_wt_oth_2011/births_w_weight_oth_2011;
+			pctbirths_low_wt_oth_2012 = births_low_wt_oth_2012/births_w_weight_oth_2012;
+			pctbirths_low_wt_oth_2013 = births_low_wt_oth_2013/births_w_weight_oth_2013;
+			pctbirths_low_wt_oth_2014 = births_low_wt_oth_2014/births_w_weight_oth_2014;
+			pctbirths_low_wt_oth_2015 = births_low_wt_oth_2015/births_w_weight_oth_2015;
+			pctbirths_low_wt_oth_2016 = births_low_wt_oth_2016/births_w_weight_oth_2016;
+
+			pctbirths_low_wt_wht_2003 = births_low_wt_wht_2003/births_w_weight_wht_2003;
+			pctbirths_low_wt_wht_2004 = births_low_wt_wht_2004/births_w_weight_wht_2004;
+			pctbirths_low_wt_wht_2005 = births_low_wt_wht_2005/births_w_weight_wht_2005;
+			pctbirths_low_wt_wht_2006 = births_low_wt_wht_2006/births_w_weight_wht_2006;
+			pctbirths_low_wt_wht_2007 = births_low_wt_wht_2007/births_w_weight_wht_2007;
+			pctbirths_low_wt_wht_2008 = births_low_wt_wht_2008/births_w_weight_wht_2008;
+			pctbirths_low_wt_wht_2009 = births_low_wt_wht_2009/births_w_weight_wht_2009;
+			pctbirths_low_wt_wht_2010 = births_low_wt_wht_2010/births_w_weight_wht_2010;
+			pctbirths_low_wt_wht_2011 = births_low_wt_wht_2011/births_w_weight_wht_2011;
+			pctbirths_low_wt_wht_2012 = births_low_wt_wht_2012/births_w_weight_wht_2012;
+			pctbirths_low_wt_wht_2013 = births_low_wt_wht_2013/births_w_weight_wht_2013;
+			pctbirths_low_wt_wht_2014 = births_low_wt_wht_2014/births_w_weight_wht_2014;
+			pctbirths_low_wt_wht_2015 = births_low_wt_wht_2015/births_w_weight_wht_2015;
+			pctbirths_low_wt_wht_2016 = births_low_wt_wht_2016/births_w_weight_wht_2016;
 
 
 			/* Births with Prenatal care*/
