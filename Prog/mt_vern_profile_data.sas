@@ -412,9 +412,7 @@ run;
 /*compile 1980 asian data*/ 
 	data get1980race;
 		set ncdb.Ncdb_master_update (where=(ucounty='11001'));
-		keep geo2010  SHRNHJ8N  shrnhj9n shrnhj0n shrnhi1n shrnha1n shrnho1n 
-		SHR8D SHR9D SHR0D SHR1D;
-
+		keep geo2010  &ncdb_1980;
 		
 	run;
 	%tr10_to_stdgeos(in_ds=get1980race, out_ds=get1980race2)
@@ -423,16 +421,14 @@ run;
 	by ward2012;
 	proc summary data=get1980race2;
 	by ward2012;
-	var  SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1an
-		SHR8D SHR9D SHR0D SHR1D;
+	var  &ncdb_1980;
 	output out=get1980race_wd12 sum=;
 	run;
 	proc sort data=get1980race2;
 	by city;
 	proc summary data=get1980race2;
 	by city;
-	var  SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1an
-		SHR8D SHR9D SHR0D SHR1D;
+	var   &ncdb_1980;
 	output out=get1980race_city sum=;
 	run;
 
@@ -569,9 +565,10 @@ run;
 
 proc sort data = compile_mvt_tabs_tr10_select; by target; run;
 
-proc summary data = compile_mvt_tabs_tr10_select; output out = compile_mvt_tabs_target sum=; 
+proc summary data = compile_mvt_tabs_tr10_select; 
 	where target = 1;
 	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980 &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	output out = compile_mvt_tabs_target sum=; 
 run;
 
 data compile_mvt_tabs_target_select;
@@ -1008,6 +1005,10 @@ label
 		Pctchange_hsp_80_90 = "Latino Population Change 1980-1990"
 		Pctchange_hsp_90_00 = "Latino Population Change 1990-2000"
 		pctchange_hsp_00_10 = "Latino Population Change 2000-2010"
+
+		Pctchange_alloth_80_90 ="Asian, PI, Native, Other change 1980-1990"
+		Pctchange_alloth_90_00 ="Asian, PI, Native, Other change 1990-2000"
+		Pctchange_alloth_00_10 ="Asian, PI, Native, Other change 2000-2010"
 ; 
 
 if geography="1" then geography="Ward 1";
@@ -1098,7 +1099,7 @@ proc sort data = compile_mvt_tabs_full;
 run;
 
 
-ods tagsets.excelxp file="D:\Users\MCohen\Box Sync\MCohen\MVT Profile\mvtprofile.xls" 
+ods tagsets.excelxp file="&_dcdata_default_path.\MVT\prog\mvtprofile.xls" 
       options( sheet_interval='' );
 ods listing close;
 
@@ -1116,10 +1117,12 @@ proc print data= compile_mvt_tabs_full label noobs;
 		popwhitenonhispbridge_2000 popwhitenonhispbridge_2010 pophisp_1980 pophisp_1990 pophisp_2000 pophisp_2010
 		popnativeamnonhispbridge_1990 popnativeamnonhispbridge_2000 popnativeamnonhispbridge_2010 popothernonhispbridge_1990 
 		   popothernonhispbridge_2000 popothernonhispbridge_2010
+
+		  SHRNHJ8N  shrnhj9n shrnhj0n shrnhi1n shrnha1n shrnho1n
  
 		   Pctchange_blk_80_90 Pctchange_blk_90_00 pctchange_blk_00_10 Pctchange_asi_90_00 pctchange_asi_00_10 
 			Pctchange_wht_80_90 Pctchange_wht_90_00 pctchange_wht_00_10	Pctchange_hsp_80_90 Pctchange_hsp_90_00	pctchange_hsp_00_10
-			Pctchange_oth_90_00 pctchange_oth_00_10 Pctchange_nat_90_00 pctchange_nat_00_10 ;
+			Pctchange_oth_90_00 pctchange_oth_00_10 Pctchange_nat_90_00 pctchange_nat_00_10 Pctchange_alloth_80_90 Pctchange_alloth_90_00 Pctchange_alloth_00_10;
 run;
 
 ods tagsets.excelxp options( sheet_name="Curr Race");
@@ -1265,7 +1268,6 @@ ods tagsets.excelxp close;
 ods listing;
 run;
 
-%File_info( data=compile_bpk_tabs2_&geosuf, contents=n, printobs=0 )
 
 proc export data=mvt_tabs
 	outfile="&_dcdata_default_path\MVT\Prog\mvt_tabs..csv"
