@@ -33,7 +33,7 @@
 			TotPop_2012_16
 			NumHshlds_2012_16
 			Mtotpop_2012_16
-			
+
 			PopWithRace_2012_16
 			PopBlackNonHispBridge_2012_16
 			PopWhiteNonHispBridge_2012_16
@@ -236,7 +236,10 @@
 			numhshlds_1990 numhshlds_2000 numoccupiedhsgunits_1990 numoccupiedhsgunits_2000 numoccupiedhsgunits_1990 numoccupiedhsgunits_2000 poppoorpersons_1990 poppoorpersons_2000 
 			personspovertydefined_1990 personspovertydefined_2000 Pop16andOverYears_1990 PopInCivLaborForce_1990
 			PopCivilianEmployed_1990 PopUnemployed_1990 Pop16andOverYears_2000 PopInCivLaborForce_2000
-			PopCivilianEmployed_2000 PopUnemployed_2000;
+			PopCivilianEmployed_2000 PopUnemployed_2000
+			popunder18years_1980 popunder18years_1990 popunder18years_2000 pop18to64years_1980 pop18to64years_1990 pop18to64years_2000 pop65andoveryears_1980 pop65andoveryears_1990 pop65andoveryears_2000
+			
+;
 
 	%let ncdb_vars = totpop_2010 popwithrace_2010 popasianpinonhispbridge_2010 popblacknonhispbridge_2010 popothernonhispbridge_2010 popmultiracialnonhisp_2010
 			popwhitenonhispbridge_2010 popnativeamnonhispbridge_2010 pophisp_2010 numoccupiedhsgunits_2010 totpop_2010 numoccupiedhsgunits_2010;
@@ -1096,7 +1099,8 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			GrossRentGT3500_2012_16;
 
 			**Age by race**;
-			
+			pop18to64years_2012_16 = pop18_34years_2012_16 + pop35_64years_2012_16; 
+
 			pctu18&_years. = popunder18years_2012_16/totpop&_years.;
 			pct18_34&_years. = pop18_34years_2012_16/totpop&_years.;
 			pct35_64&_years. = pop35_64years_2012_16/totpop&_years.;
@@ -1126,6 +1130,9 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			pct18_34aiom&_years. = pop18_34yearsaiom_2012_16/popaloneaiom_2012_16 ;
 			pct35_64aiom&_years. = pop35_64yearsaiom_2012_16/popaloneaiom_2012_16 ;
 			pcto65aiom&_years. = pop65andoveryearsaiom_2012_16/popaloneaiom_2012_16 ;
+
+			
+			
 
 			/*Income*/ 
 			pct_hshldinc100000plus_2012_16 = hshldinc100000plus_2012_16/numhshlds_2012_16;
