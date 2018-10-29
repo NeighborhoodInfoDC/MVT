@@ -199,7 +199,7 @@
 			NumOwnCstBurden_GT150K_2012_16
 
 
-			agghshldincome_2012_16
+			numhshlds_2012_16
 			hshldinc100000plus_2012_16
 			hshldinc100000to124999_2012_16
 			hshldinc10000to14999_2012_16
@@ -1128,28 +1128,28 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			pcto65aiom&_years. = pop65andoveryearsaiom_2012_16/popaloneaiom_2012_16 ;
 
 			/*Income*/ 
-			pct_hshldinc100000plus_2012_16 = hshldinc100000plus_2012_16/agghshldincome_2012_16;
-			pct_hshldinc100000to124999_2012_16 = hshldinc100000to124999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc10000to14999_2012_16 = hshldinc10000to14999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc125000to149999_2012_16 = hshldinc125000to149999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc150000to199999_2012_16 = hshldinc150000to199999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc15000to19999_2012_16 = hshldinc15000to19999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc15000to34999_2012_16 = hshldinc15000to34999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc200000andover_2012_16 = hshldinc200000andover_2012_16/agghshldincome_2012_16;
-			pct_hshldinc200000plus_2012_16 = hshldinc200000plus_2012_16/agghshldincome_2012_16;
-			pct_hshldinc20000to24999_2012_16 = hshldinc20000to24999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc25000to29999_2012_16 = hshldinc25000to29999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc30000to34999_2012_16 = hshldinc30000to34999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc35000to39999_2012_16 = hshldinc35000to39999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc35000to49999_2012_16 = hshldinc35000to49999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc40000to44999_2012_16 = hshldinc40000to44999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc45000to49999_2012_16 = hshldinc45000to49999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc50000to59999_2012_16 = hshldinc50000to59999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc50000to74999_2012_16 = hshldinc50000to74999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc60000to74999_2012_16 = hshldinc60000to74999_2012_16/agghshldincome_2012_16;
-			pct_hshldinc75000to99999_2012_16 = hshldinc75000to99999_2012_16/agghshldincome_2012_16;
-			pct_hshldincunder10000_2012_16 = hshldincunder10000_2012_16/agghshldincome_2012_16;
-			pct_hshldincunder15000_2012_16 = hshldincunder15000_2012_16/agghshldincome_2012_16;
+			pct_hshldinc100000plus_2012_16 = hshldinc100000plus_2012_16/numhshlds_2012_16;
+			pct_hshldinc100000124999_2012_16 = hshldinc100000to124999_2012_16/numhshlds_2012_16;
+			pct_hshldinc10000to14999_2012_16 = hshldinc10000to14999_2012_16/numhshlds_2012_16;
+			pct_hshldinc125000149999_2012_16 = hshldinc125000to149999_2012_16/numhshlds_2012_16;
+			pct_hshldinc150000199999_2012_16 = hshldinc150000to199999_2012_16/numhshlds_2012_16;
+			pct_hshldinc15000to19999_2012_16 = hshldinc15000to19999_2012_16/numhshlds_2012_16;
+			pct_hshldinc15000to34999_2012_16 = hshldinc15000to34999_2012_16/numhshlds_2012_16;
+			pct_hshldinc200000over_2012_16 = hshldinc200000andover_2012_16/numhshlds_2012_16;
+			pct_hshldinc200000plus_2012_16 = hshldinc200000plus_2012_16/numhshlds_2012_16;
+			pct_hshldinc20000to24999_2012_16 = hshldinc20000to24999_2012_16/numhshlds_2012_16;
+			pct_hshldinc25000to29999_2012_16 = hshldinc25000to29999_2012_16/numhshlds_2012_16;
+			pct_hshldinc30000to34999_2012_16 = hshldinc30000to34999_2012_16/numhshlds_2012_16;
+			pct_hshldinc35000to39999_2012_16 = hshldinc35000to39999_2012_16/numhshlds_2012_16;
+			pct_hshldinc35000to49999_2012_16 = hshldinc35000to49999_2012_16/numhshlds_2012_16;
+			pct_hshldinc40000to44999_2012_16 = hshldinc40000to44999_2012_16/numhshlds_2012_16;
+			pct_hshldinc45000to49999_2012_16 = hshldinc45000to49999_2012_16/numhshlds_2012_16;
+			pct_hshldinc50000to59999_2012_16 = hshldinc50000to59999_2012_16/numhshlds_2012_16;
+			pct_hshldinc50000to74999_2012_16 = hshldinc50000to74999_2012_16/numhshlds_2012_16;
+			pct_hshldinc60000to74999_2012_16 = hshldinc60000to74999_2012_16/numhshlds_2012_16;
+			pct_hshldinc75000to99999_2012_16 = hshldinc75000to99999_2012_16/numhshlds_2012_16;
+			pct_hshldincunder10000_2012_16 = hshldincunder10000_2012_16/numhshlds_2012_16;
+			pct_hshldincunder15000_2012_16 = hshldincunder15000_2012_16/numhshlds_2012_16;
 
 
 
@@ -1204,6 +1204,119 @@ label
 		Pctchange_alloth_80_90 ="Asian, PI, Native, Other change 1980-1990"
 		Pctchange_alloth_90_00 ="Asian, PI, Native, Other change 1990-2000"
 		Pctchange_alloth_00_10 ="Asian, PI, Native, Other change 2000-2010"
+
+			pct_hshldinc100000plus_2012_16 = "Percent Households with Income $100,000 Plus" 
+			pct_hshldinc100000124999_2012_16 = "Percent Households with Income $100,000- $124,999" 
+			pct_hshldinc10000to14999_2012_16 = "Percent Households with Income $10,000-$14,999 " 
+			pct_hshldinc125000149999_2012_16 = "Percent Households with Income $125,000- $149,999" 
+			pct_hshldinc150000199999_2012_16 = "Percent Households with Income $150,000 - $199,999" 
+			pct_hshldinc15000to19999_2012_16 ="Percent Households with Income $15,000 -$19,999" 
+			pct_hshldinc15000to34999_2012_16 = "Percent Households with Income $15,000 -$34,999" 
+			pct_hshldinc200000over_2012_16 = "Percent Households with Income $200,000 and over" 
+			pct_hshldinc200000plus_2012_16 = "Percent Households with Income $200,000 Plus" 
+			pct_hshldinc20000to24999_2012_16 = "Percent Households with Income $20,000- $24,999" 
+			pct_hshldinc25000to29999_2012_16 = "Percent Households with Income $25,000- $29,999" 
+			pct_hshldinc30000to34999_2012_16 = "Percent Households with Income $30,000- $34,999" 
+			pct_hshldinc35000to39999_2012_16 ="Percent Households with Income $35,000- $39,999" 
+			pct_hshldinc35000to49999_2012_16 = "Percent Households with Income $35,000- $49,999" 
+			pct_hshldinc40000to44999_2012_16 = "Percent Households with Income $40,000- $44,999" 
+			pct_hshldinc45000to49999_2012_16 = "Percent Households with Income $45,000- $49,999" 
+			pct_hshldinc50000to59999_2012_16 ="Percent Households with Income $50,000- $59,999" 
+			pct_hshldinc50000to74999_2012_16 = "Percent Households with Income $50,000- $74,999" 
+			pct_hshldinc60000to74999_2012_16 ="Percent Households with Income $60,000- $74,999" 
+			pct_hshldinc75000to99999_2012_16 = "Percent Households with Income $75,000- $99,999" 
+			pct_hshldincunder10000_2012_16 = "Percent Households with Income under $10,000" 
+			pct_hshldincunder15000_2012_16 ="Percent Households with Income under $15,000" 
+
+			pctbirths_low_wt_2003 = "Percent Low Weight Births 2003" 
+			pctbirths_low_wt_2004 ="Percent Low Weight Births 2004" 
+			pctbirths_low_wt_2005 = "Percent Low Weight Births 2005" 
+			pctbirths_low_wt_2006 ="Percent Low Weight Births 2006" 
+			pctbirths_low_wt_2007 = "Percent Low Weight Births 2007" 
+			pctbirths_low_wt_2008 = "Percent Low Weight Births 2008" 
+			pctbirths_low_wt_2009 = "Percent Low Weight Births 2009" 
+			pctbirths_low_wt_2010 = "Percent Low Weight Births 2010" 
+			pctbirths_low_wt_2011 = "Percent Low Weight Births 2011" 
+			pctbirths_low_wt_2012 = "Percent Low Weight Births 2012" 
+			pctbirths_low_wt_2013 = "Percent Low Weight Births 2013" 
+			pctbirths_low_wt_2014 = "Percent Low Weight Births 2014" 
+			pctbirths_low_wt_2015 = "Percent Low Weight Births 2015" 
+			pctbirths_low_wt_2016 = "Percent Low Weight Births 2016" 
+
+			pctbirths_low_wt_asn_2003 = "Percent Low Weight Births 2003 (Asian)" 
+			pctbirths_low_wt_asn_2004 = "Percent Low Weight Births 2004 (Asian)" 
+			pctbirths_low_wt_asn_2005 = "Percent Low Weight Births 2005 (Asian)" 
+			pctbirths_low_wt_asn_2006 = "Percent Low Weight Births 2006 (Asian)" 
+			pctbirths_low_wt_asn_2007 = "Percent Low Weight Births 2007 (Asian)" 
+			pctbirths_low_wt_asn_2008 = "Percent Low Weight Births 2008 (Asian)"
+			pctbirths_low_wt_asn_2009 = "Percent Low Weight Births 2009 (Asian)"
+			pctbirths_low_wt_asn_2010 = "Percent Low Weight Births 2010 (Asian)"
+			pctbirths_low_wt_asn_2011 = "Percent Low Weight Births 2011 (Asian)"
+			pctbirths_low_wt_asn_2012 = "Percent Low Weight Births 2012 (Asian)"
+			pctbirths_low_wt_asn_2013 = "Percent Low Weight Births 2013 (Asian)"
+			pctbirths_low_wt_asn_2014 = "Percent Low Weight Births 2014 (Asian)"
+			pctbirths_low_wt_asn_2015 = "Percent Low Weight Births 2015 (Asian)"
+			pctbirths_low_wt_asn_2016 = "Percent Low Weight Births 2016 (Asian)"
+
+			pctbirths_low_wt_blk_2003 = "Percent Low Weight Births 2003 (Black)" 
+			pctbirths_low_wt_blk_2004 = "Percent Low Weight Births 2004 (Black)" 
+			pctbirths_low_wt_blk_2005 = "Percent Low Weight Births 2005 (Black)" 
+			pctbirths_low_wt_blk_2006 = "Percent Low Weight Births 2006 (Black)"  
+			pctbirths_low_wt_blk_2007 = "Percent Low Weight Births 2007 (Black)" 
+			pctbirths_low_wt_blk_2008 = "Percent Low Weight Births 2008 (Black)" 
+			pctbirths_low_wt_blk_2009 = "Percent Low Weight Births 2009 (Black)" 
+			pctbirths_low_wt_blk_2010 = "Percent Low Weight Births 2010 (Black)"  
+			pctbirths_low_wt_blk_2011 = "Percent Low Weight Births 2011 (Black)" 
+			pctbirths_low_wt_blk_2012 = "Percent Low Weight Births 2012 (Black)" 
+			pctbirths_low_wt_blk_2013 = "Percent Low Weight Births 2013 (Black)"  
+			pctbirths_low_wt_blk_2014 = "Percent Low Weight Births 2014 (Black)" 
+			pctbirths_low_wt_blk_2015 = "Percent Low Weight Births 2015 (Black)" 
+			pctbirths_low_wt_blk_2016 = "Percent Low Weight Births 2016 (Black)" 
+
+			pctbirths_low_wt_hsp_2003 = "Percent Low Weight Births 2003 (Hispanic)" 
+			pctbirths_low_wt_hsp_2004 = "Percent Low Weight Births 2004 (Hispanic)" 
+			pctbirths_low_wt_hsp_2005 = "Percent Low Weight Births 2005 (Hispanic)" 
+			pctbirths_low_wt_hsp_2006 = "Percent Low Weight Births 2006 (Hispanic)" 
+			pctbirths_low_wt_hsp_2007 = "Percent Low Weight Births 2007 (Hispanic)" 
+			pctbirths_low_wt_hsp_2008 = "Percent Low Weight Births 2008 (Hispanic)" 
+			pctbirths_low_wt_hsp_2009 = "Percent Low Weight Births 2009 (Hispanic)" 
+			pctbirths_low_wt_hsp_2010 = "Percent Low Weight Births 2010 (Hispanic)" 
+			pctbirths_low_wt_hsp_2011 = "Percent Low Weight Births 2011 (Hispanic)" 
+			pctbirths_low_wt_hsp_2012 = "Percent Low Weight Births 2012 (Hispanic)" 
+			pctbirths_low_wt_hsp_2013 = "Percent Low Weight Births 2013 (Hispanic)" 
+			pctbirths_low_wt_hsp_2014 = "Percent Low Weight Births 2014 (Hispanic)" 
+			pctbirths_low_wt_hsp_2015 = "Percent Low Weight Births 2015 (Hispanic)" 
+			pctbirths_low_wt_hsp_2016 = "Percent Low Weight Births 2016 (Hispanic)" 
+
+			pctbirths_low_wt_oth_2003 = "Percent Low Weight Births 2003 (Other)" 
+			pctbirths_low_wt_oth_2004 = "Percent Low Weight Births 2004 (Other)" 
+			pctbirths_low_wt_oth_2005 = "Percent Low Weight Births 2005 (Other)"
+			pctbirths_low_wt_oth_2006 = "Percent Low Weight Births 2006 (Other)"
+			pctbirths_low_wt_oth_2007 = "Percent Low Weight Births 2007 (Other)"
+			pctbirths_low_wt_oth_2008 = "Percent Low Weight Births 2008 (Other)"
+			pctbirths_low_wt_oth_2009 = "Percent Low Weight Births 2009 (Other)"
+			pctbirths_low_wt_oth_2010 = "Percent Low Weight Births 2010 (Other)"
+			pctbirths_low_wt_oth_2011 = "Percent Low Weight Births 2011 (Other)"
+			pctbirths_low_wt_oth_2012 = "Percent Low Weight Births 2012 (Other)"
+			pctbirths_low_wt_oth_2013 = "Percent Low Weight Births 2013 (Other)"
+			pctbirths_low_wt_oth_2014 = "Percent Low Weight Births 2014 (Other)"
+			pctbirths_low_wt_oth_2015 = "Percent Low Weight Births 2015 (Other)"
+			pctbirths_low_wt_oth_2016 = "Percent Low Weight Births 2016 (Other)"
+
+			pctbirths_low_wt_wht_2003 = "Percent Low Weight Births 2003 (White)"
+			pctbirths_low_wt_wht_2004 = "Percent Low Weight Births 2004 (White)"
+			pctbirths_low_wt_wht_2005 = "Percent Low Weight Births 2005 (White)"
+			pctbirths_low_wt_wht_2006 = "Percent Low Weight Births 2006 (White)"
+			pctbirths_low_wt_wht_2007 = "Percent Low Weight Births 2007 (White)"
+			pctbirths_low_wt_wht_2008 = "Percent Low Weight Births 2008 (White)"
+			pctbirths_low_wt_wht_2009 = "Percent Low Weight Births 2009 (White)"
+			pctbirths_low_wt_wht_2010 = "Percent Low Weight Births 2010 (White)"
+			pctbirths_low_wt_wht_2011 = "Percent Low Weight Births 2011 (White)"
+			pctbirths_low_wt_wht_2012 = "Percent Low Weight Births 2012 (White)"
+			pctbirths_low_wt_wht_2013 = "Percent Low Weight Births 2013 (White)"
+			pctbirths_low_wt_wht_2014 = "Percent Low Weight Births 2014 (White)"
+			pctbirths_low_wt_wht_2015 = "Percent Low Weight Births 2015 (White)"
+			pctbirths_low_wt_wht_2016 = "Percent Low Weight Births 2016 (White)"
 ; 
 
 if geography="1" then geography="Ward 1";
