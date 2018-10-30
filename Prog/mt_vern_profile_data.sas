@@ -1135,7 +1135,7 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 
 			
 			**Income**; 
-			hshldincunder25000_2012_16 = hshldinc10000to14999_2012_16 + hshldinc15000to19999_2012_16 + hshldinc20000to24999_2012_16; 
+			hshldincunder25000_2012_16 =hshldincunder10000_2012_16+ hshldinc10000to14999_2012_16 + hshldinc15000to19999_2012_16 + hshldinc20000to24999_2012_16; 
 			hshldinc25000to49999_2012_16 = hshldinc25000to29999_2012_16 + hshldinc30000to34999_2012_16 + hshldinc35000to39999_2012_16 + hshldinc40000to44999_2012_16 + hshldinc45000to49999_2012_16;
 			hshldinc75000to124999_2012_16 =  hshldinc75000to99999_2012_16 + hshldinc100000to124999_2012_16; 
 			hshldinc125000plus_2012_16 = hshldinc125000to149999_2012_16 + hshldinc150000to199999_2012_16 + hshldinc200000andover_2012_16; 
