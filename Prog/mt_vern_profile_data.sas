@@ -1135,11 +1135,13 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 
 			
 			**Income**; 
-			hshldincunder25000_2012_16 =hshldincunder10000_2012_16+ hshldinc10000to14999_2012_16 + hshldinc15000to19999_2012_16 + hshldinc20000to24999_2012_16; 
+
+			hshldincunder25000_2012_16 = hshldincunder10000_2012_16+ hshldinc10000to14999_2012_16 + hshldinc15000to19999_2012_16 + hshldinc20000to24999_2012_16; 
 			hshldinc25000to49999_2012_16 = hshldinc25000to29999_2012_16 + hshldinc30000to34999_2012_16 + hshldinc35000to39999_2012_16 + hshldinc40000to44999_2012_16 + hshldinc45000to49999_2012_16;
 			hshldinc75000to124999_2012_16 =  hshldinc75000to99999_2012_16 + hshldinc100000to124999_2012_16; 
 			hshldinc125000plus_2012_16 = hshldinc125000to149999_2012_16 + hshldinc150000to199999_2012_16 + hshldinc200000andover_2012_16; 
-
+			
+			pct_hshldincunder10000_2012_16 = hshldincunder10000_2012_16/numhshlds_2012_16;
 			pct_hshldincunder25000_2012_16 = hshldincunder25000_2012_16/numhshlds_2012_16;
 			pct_hshldinc25000to49999_2012_16 = hshldinc25000to49999_2012_16/numhshlds_2012_16;
 			pct_hshldinc50000to74999_2012_16 = hshldinc50000to74999_2012_16/numhshlds_2012_16;
@@ -1246,6 +1248,7 @@ label
 			pct_hshldincunder10000_2012_16 = "Percent Households with Income under $10,000" 
 			pct_hshldincunder15000_2012_16 ="Percent Households with Income under $15,000" */
 
+			pct_hshldincunder10000_2012_16 = "Percent Households with Income under $10,000" 
 			pct_hshldincunder25000_2012_16 = "Percent Households with Income under $25,000"
 			pct_hshldinc25000to49999_2012_16 = "Percent Households with Income $25,000- $49,999"
 			pct_hshldinc50000to74999_2012_16 = "Percent Households with Income $50,000- $74,999"
@@ -1422,7 +1425,107 @@ proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
 			violent_crime_rate_2014
 			violent_crime_rate_2015
 			violent_crime_rate_2016
-			violent_crime_rate_2017;
+			violent_crime_rate_2017
+
+		/*Household Income*/
+			pct_hshldincunder10000_2012_16 
+			pct_hshldincunder25000_2012_16 
+			pct_hshldinc25000to49999_2012_16 
+			pct_hshldinc50000to74999_2012_16 
+			pct_hshldinc75000124999_2012_16 
+			pct_hshldinc125000plus_2012_16
+
+		/*Low Birth Weight*/
+			pctbirths_low_wt_2003
+			pctbirths_low_wt_2004 
+			pctbirths_low_wt_2005 
+			pctbirths_low_wt_2006 
+			pctbirths_low_wt_2007 
+			pctbirths_low_wt_2008 
+			pctbirths_low_wt_2009
+			pctbirths_low_wt_2010
+			pctbirths_low_wt_2011 
+			pctbirths_low_wt_2012
+			pctbirths_low_wt_2013
+			pctbirths_low_wt_2014
+			pctbirths_low_wt_2015
+			pctbirths_low_wt_2016
+
+			pctbirths_low_wt_asn_2003 
+			pctbirths_low_wt_asn_2004
+			pctbirths_low_wt_asn_2005 
+			pctbirths_low_wt_asn_2006 
+			pctbirths_low_wt_asn_2007 
+			pctbirths_low_wt_asn_2008 
+			pctbirths_low_wt_asn_2009 
+			pctbirths_low_wt_asn_2010 
+			pctbirths_low_wt_asn_2011 
+			pctbirths_low_wt_asn_2012 
+			pctbirths_low_wt_asn_2013
+			pctbirths_low_wt_asn_2014 
+			pctbirths_low_wt_asn_2015
+			pctbirths_low_wt_asn_2016 
+
+			pctbirths_low_wt_blk_2003
+			pctbirths_low_wt_blk_2004
+			pctbirths_low_wt_blk_2005
+			pctbirths_low_wt_blk_2006
+			pctbirths_low_wt_blk_2007
+			pctbirths_low_wt_blk_2008
+			pctbirths_low_wt_blk_2009
+			pctbirths_low_wt_blk_2010
+			pctbirths_low_wt_blk_2011
+			pctbirths_low_wt_blk_2012
+			pctbirths_low_wt_blk_2013 
+			pctbirths_low_wt_blk_2014
+			pctbirths_low_wt_blk_2015
+			pctbirths_low_wt_blk_2016 
+
+			pctbirths_low_wt_hsp_2003 
+			pctbirths_low_wt_hsp_2004 
+			pctbirths_low_wt_hsp_2005
+			pctbirths_low_wt_hsp_2006
+			pctbirths_low_wt_hsp_2007 
+			pctbirths_low_wt_hsp_2008
+			pctbirths_low_wt_hsp_2009 
+			pctbirths_low_wt_hsp_2010 
+			pctbirths_low_wt_hsp_2011 
+			pctbirths_low_wt_hsp_2012 
+			pctbirths_low_wt_hsp_2013 
+			pctbirths_low_wt_hsp_2014 
+			pctbirths_low_wt_hsp_2015 
+			pctbirths_low_wt_hsp_2016 
+
+			pctbirths_low_wt_oth_2003 
+			pctbirths_low_wt_oth_2004 
+			pctbirths_low_wt_oth_2005 
+			pctbirths_low_wt_oth_2006
+			pctbirths_low_wt_oth_2007 
+			pctbirths_low_wt_oth_2008
+			pctbirths_low_wt_oth_2009 
+			pctbirths_low_wt_oth_2010
+			pctbirths_low_wt_oth_2011
+			pctbirths_low_wt_oth_2012
+			pctbirths_low_wt_oth_2013 
+			pctbirths_low_wt_oth_2014 
+			pctbirths_low_wt_oth_2015 
+			pctbirths_low_wt_oth_2016 
+
+			pctbirths_low_wt_wht_2003 
+			pctbirths_low_wt_wht_2004 
+			pctbirths_low_wt_wht_2005 
+			pctbirths_low_wt_wht_2006 
+			pctbirths_low_wt_wht_2007 
+			pctbirths_low_wt_wht_2008 
+			pctbirths_low_wt_wht_2009 
+			pctbirths_low_wt_wht_2010 
+			pctbirths_low_wt_wht_2011 
+			pctbirths_low_wt_wht_2012 
+			pctbirths_low_wt_wht_2013 
+			pctbirths_low_wt_wht_2014 
+			pctbirths_low_wt_wht_2015 
+			pctbirths_low_wt_wht_2016
+;
 id geography; 
 run; 
 
@@ -1693,6 +1796,7 @@ run;
 ods tagsets.excelxp options( sheet_name="Income Categories");
 proc print data= compile_mvt_tabs_full label noobs;
 var geography 
+			pct_hshldincunder10000_2012_16 
 			pct_hshldincunder25000_2012_16 
 			pct_hshldinc25000to49999_2012_16 
 			pct_hshldinc50000to74999_2012_16 
