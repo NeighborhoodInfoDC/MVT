@@ -477,7 +477,9 @@
 		%let price_vars = 
 				mprice2003 mprice2004 mprice2005 mprice2006 mprice2007 
 				mprice2008 mprice2009 mprice2010 mprice2011 mprice2012 
-				mprice2013 mprice2014 mprice2015 mprice2016 mprice2017 mprice2018;
+				mprice2013 mprice2014 mprice2015 mprice2016 mprice2017 mprice2018 mprice2003 mCondoprice2004 mCondoprice2005 mCondoprice2006 mCondoprice2007 
+				mCondoprice2008 mCondoprice2009 mCondoprice2010 mCondoprice2011 mCondoprice2012 
+				mCondoprice2013 mCondoprice2014 mCondoprice2015 mCondoprice2016 mCondoprice2017 mCondoprice2018;
 
 		%let subs_vars = Proj_Units_Assist_Min_Sum Proj_Units_Assist_Max_Sum;
 
@@ -584,6 +586,12 @@ data sales_res;
 	
 			%dollar_convert( saleprice, sale_adj, saleyear, 2017, series=CUUR0000SA0L2 )
 
+			total=1;
+			condo=0;
+			sf=0;
+			if ui_proptype="11" then do; sale_condo_adj=sale_adj; condo=1; end;
+			if ui_proptype="10" then do; sale_sf_adj=sale_adj;sf=1; end;
+
 run;
 
 proc sort data=sales_res;
@@ -592,24 +600,32 @@ run;
 
 proc tabulate data = sales_res out = price_tab_&geosuf;
 class &geo saleyear;
-var sale_adj ;
-table &geo, saleyear *(median) *sale_adj;
+var sale_adj sale_sf_adj sale_condo_adj;
+table &geo, saleyear *(median) *(sale_adj sale_sf_adj sale_condo_adj);
 run;
 
 proc transpose data=price_tab_&geosuf out=price_&geosuf prefix=mprice;
     by &geo ;
     id saleyear;
-    var sale_adj_median;
+    var sale_adj_median ;
 run;
+
+proc transpose data=price_tab_&geosuf out=priceCondo_&geosuf prefix=mCondoprice;
+    by &geo ;
+    id saleyear;
+    var sale_condo_adj_median;
+run;
+
+
 
 %if &geo = ward2012 %then %do;	
 data compile_mvt_tabs_wd12_full;
-	merge compile_mvt_tabs_wd12 price_wd12 (keep= &geo &price_vars);
+	merge compile_mvt_tabs_wd12 price_wd12 (drop= _name_) Pricecondo_wd12  (drop=_name_);
 	by &geo;
 run; %end;
 %else %if &geo = city %then %do;
 data compile_mvt_tabs_city_full;
-	merge compile_mvt_tabs_city price_city (keep= &geo &price_vars);
+	merge compile_mvt_tabs_city price_city (drop= _name_)  priceCondo_city (drop= _name_);
 	by &geo;
 run; %end;
 %mend Compile_mvt_data;
@@ -687,6 +703,12 @@ data sales_res_target;
 	if Geo2010 in("11001004701","11001004702") then target = 1;
 	if Geo2010 in("11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then target = 2;
 	%dollar_convert( saleprice, sale_adj, saleyear, 2017, series=CUUR0000SA0L2 )
+
+			total=1;
+			condo=0;
+			sf=0;
+			if ui_proptype="11" then do; sale_condo_adj=sale_adj; condo=1; end;
+			if ui_proptype="10" then do; sale_sf_adj=sale_adj;sf=1; end;
 run;
 
 proc sort data=sales_res_target;
@@ -695,22 +717,26 @@ run;
 
 proc tabulate data = sales_res_target out = price_tab_target;
 class target saleyear;
-var sale_adj ;
-table target, saleyear *(median) *sale_adj;
+var sale_adj sale_sf_adj sale_condo_adj ;
+table target, saleyear *(median) * (sale_adj sale_sf_adj sale_condo_adj);
 run;
 
 proc transpose data=price_tab_target out=price_target prefix=mprice;
     by target ;
     id saleyear;
-    var sale_adj_median;
+    var sale_adj_median ;
 run;
-
+proc transpose data=price_tab_target out=priceCondo_target prefix=mCondoprice;
+    by target ;
+    id saleyear;
+    var sale_condo_adj_median ;
+run;
 data compile_mvt_tabs_tracts;
 	set compile_mvt_tabs_target_select compile_mvt_tabs_adj_select;
 run;
 
 data compile_mvt_tabs_tracts_select;
-	merge compile_mvt_tabs_tracts price_target (keep= target &price_vars);
+	merge compile_mvt_tabs_tracts price_target (drop=_name_) priceCondo_target (drop=_name_);
 	by target;
 run;
 
@@ -1601,10 +1627,16 @@ proc print data= compile_mvt_tabs_full label noobs;
 PctOwnerOccupiedHU&_years. 	PctRenterOccupiedHU&_years.;
 run;
 
-ods tagsets.excelxp options( sheet_name="SF Home Price");
+ods tagsets.excelxp options( sheet_name="SF-Condo Median Price");
 proc print data= compile_mvt_tabs_full label noobs;
   var	geography 
 mprice:;
+run;
+
+ods tagsets.excelxp options( sheet_name="Condo Median Price");
+proc print data= compile_mvt_tabs_full label noobs;
+  var	geography 
+mCondoprice:;
 run;
 
 ods tagsets.excelxp options( sheet_name="Housing Burden");
