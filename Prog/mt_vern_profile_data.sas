@@ -244,7 +244,8 @@
 	%let ncdb_vars = totpop_2010 popwithrace_2010 popasianpinonhispbridge_2010 popblacknonhispbridge_2010 popothernonhispbridge_2010 popmultiracialnonhisp_2010
 			popwhitenonhispbridge_2010 popnativeamnonhispbridge_2010 pophisp_2010 numoccupiedhsgunits_2010 totpop_2010 numoccupiedhsgunits_2010;
 
-	%let ncdb_1980 = SHRNHJ8N  shrnhj9n shrnhj0n shrnhi1n shrnha1n shrnho1n  SHR8D SHR9D SHR0D SHR1D;
+			%let ncdb_1980a = SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1n SHR8D SHR9D SHR0D SHR1D;
+	
 
 	%let birth_vars =births_total_2003 births_total_2004 births_total_2005 births_total_2006
 				births_total_2007 births_total_2008 births_total_2009 births_total_2010 births_total_2011
@@ -493,7 +494,15 @@ run;
 /*compile 1980 asian data*/ 
 	data get1980race;
 		set ncdb.Ncdb_master_update (where=(ucounty='11001'));
-		keep geo2010  &ncdb_1980;
+		keep geo2010  &ncdb_1980a;
+	 
+		shrnhj1n=(shrnhi1n +shrnha1n + shrnho1n);
+
+		label shrnhj1n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 2010"
+			  shrnhj0n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 2000"
+			   shrnhj9n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 1990"
+			    shrnhj8n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 1980"
+		;
 		
 	run;
 	%tr10_to_stdgeos(in_ds=get1980race, out_ds=get1980race2)
@@ -502,14 +511,14 @@ run;
 	by ward2012;
 	proc summary data=get1980race2;
 	by ward2012;
-	var  &ncdb_1980;
+	var  &ncdb_1980a;
 	output out=get1980race_wd12 sum=;
 	run;
 	proc sort data=get1980race2;
 	by city;
 	proc summary data=get1980race2;
 	by city;
-	var   &ncdb_1980;
+	var   &ncdb_1980a;
 	output out=get1980race_city sum=;
 	run;
 
@@ -631,7 +640,7 @@ run; %end;
  data compile_mvt_tabs_wd12_select;
 	merge compile_mvt_tabs_wd12_full Get1980race_wd12;
 	by Ward2012;
-	if Ward2012 in("3","4","5","7","8") then delete;
+	if Ward2012 in("3","4","1","7","8") then delete;
 	length geography $20.;
 	geography = Ward2012;
 run;
@@ -648,7 +657,7 @@ proc sort data = compile_mvt_tabs_tr10_select; by target; run;
 
 proc summary data = compile_mvt_tabs_tr10_select; 
 	where target = 1;
-	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980 &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980a &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
 	output out = compile_mvt_tabs_target sum=; 
 run;
 
@@ -660,7 +669,7 @@ data compile_mvt_tabs_target_select;
 run;
 
 proc summary data = compile_mvt_tabs_tr10_select ; output out = compile_mvt_tabs_target_adj sum=;
-	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980 &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980a &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
 run;
 
 data compile_mvt_tabs_adj_select;
@@ -1064,7 +1073,7 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 
 			Pctchange_alloth_80_90 =(shrnhj9n-SHRNHJ8N) / SHRNHJ8N;
 			Pctchange_alloth_90_00 =(shrnhj0n - shrnhj9n) /shrnhj9n;
-			Pctchange_alloth_00_10 =((shrnhi1n +shrnha1n + shrnho1n) - shrnhj0n)/shrnhj0n;
+			Pctchange_alloth_00_10 =(shrnhj1n - shrnhj0n)/shrnhj0n;
 
 			/*gross rent*/
 
@@ -1346,8 +1355,8 @@ label
 			pctbirths_low_wt_wht_2016 = "Percent Low Weight Births 2016 (White)"
 ; 
 
-if geography="1" then geography="Ward 1";
 if geography="2" then geography="Ward 2";
+if geography="5" then geography="Ward 5";
 if geography="6" then geography="Ward 6";
 
 run;
@@ -1355,7 +1364,7 @@ run;
 **Transpose from wide to long data where observations are the indicators**;
 
 proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
-	var geography &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &birth_vars &tanf_vars &fs_vars &unit_vars &price_vars &subs_vars &plan_vars
+	var geography &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980a &sales_vars &birth_vars &tanf_vars &fs_vars &unit_vars &price_vars &subs_vars &plan_vars
 		/*Race and ethnicity*/
 			PctWht&_years.
 			PctBlk&_years.
@@ -1553,7 +1562,7 @@ proc print data= compile_mvt_tabs_full label noobs;
 		popnativeamnonhispbridge_1990 popnativeamnonhispbridge_2000 popnativeamnonhispbridge_2010 popothernonhispbridge_1990 
 		   popothernonhispbridge_2000 popothernonhispbridge_2010
 
-		  SHRNHJ8N  shrnhj9n shrnhj0n shrnhi1n shrnha1n shrnho1n
+		  SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1n
  
 		   Pctchange_blk_80_90 Pctchange_blk_90_00 pctchange_blk_00_10 Pctchange_asi_90_00 pctchange_asi_00_10 
 			Pctchange_wht_80_90 Pctchange_wht_90_00 pctchange_wht_00_10	Pctchange_hsp_80_90 Pctchange_hsp_90_00	pctchange_hsp_00_10
