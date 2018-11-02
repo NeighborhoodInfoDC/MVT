@@ -507,22 +507,34 @@ run;
 		;
 		
 	run;
-	%tr10_to_stdgeos(in_ds=get1980race, out_ds=get1980race2)
-
-	proc sort data=get1980race2;
-	by ward2012;
-	proc summary data=get1980race2;
-	by ward2012;
-	var  &ncdb_1980a;
-	output out=get1980race_wd12 sum=;
-	run;
-	proc sort data=get1980race2;
-	by city;
-	proc summary data=get1980race2;
-	by city;
-	var   &ncdb_1980a;
-	output out=get1980race_city sum=;
-	run;
+%Transform_geo_data(
+keep_nonmatch=n,
+dat_ds_name=work.get1980race,
+dat_org_geo=geo2010,
+dat_count_vars=  &ncdb_1980a,
+wgt_ds_name=general.Wt_tr10_ward12,
+wgt_org_geo=Geo2010,
+wgt_new_geo=ward2012, 
+wgt_id_vars=,
+wgt_wgt_var=PopWt,
+out_ds_name=get1980race_wd12,
+out_ds_label=%str(NCDB asian-other race vars),
+calc_vars=,calc_vars_labels=
+)
+%Transform_geo_data(
+keep_nonmatch=n,
+dat_ds_name=work.get1980race,
+dat_org_geo=geo2010,
+dat_count_vars=  &ncdb_1980a,
+wgt_ds_name=general.Wt_tr10_city,
+wgt_org_geo=Geo2010,
+wgt_new_geo=ward2012, 
+wgt_id_vars=,
+wgt_wgt_var=PopWt,
+out_ds_name=get1980race_city,
+out_ds_label=%str(NCDB asian-other race vars),
+calc_vars=,calc_vars_labels=
+)
 
 
 /*compile other data*/ 
@@ -829,7 +841,7 @@ data compile_mvt_tabs_full;
 		%macro birthsbyrace;
 		/*making these three year rolling averages**/
 
-			%let race_st=asi blk hsp wht oth;
+			%let race_st=asn blk hsp wht oth;
 			%let race=asian black hisp white oth;
 			%let race_label=Asian Black Hispanic White Other;
 			
@@ -1416,14 +1428,14 @@ proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
 			pctbirths_low_wt_2015
 			pctbirths_low_wt_2016
 
-			pctbirths_low_wt_asi_2007_09
-			pctbirths_low_wt_asi_2008_10 
-			pctbirths_low_wt_asi_2009_11 
-			pctbirths_low_wt_asi_2010_12 
-			pctbirths_low_wt_asi_2011_13 
-			pctbirths_low_wt_asi_2012_14 
-			pctbirths_low_wt_asi_2013_15
-			pctbirths_low_wt_asi_2014_16
+			pctbirths_low_wt_asn_2007_09
+			pctbirths_low_wt_asn_2008_10 
+			pctbirths_low_wt_asn_2009_11 
+			pctbirths_low_wt_asn_2010_12 
+			pctbirths_low_wt_asn_2011_13 
+			pctbirths_low_wt_asn_2012_14 
+			pctbirths_low_wt_asn_2013_15
+			pctbirths_low_wt_asn_2014_16
 			
 			pctbirths_low_wt_blk_2007_09
 			pctbirths_low_wt_blk_2008_10
@@ -1459,12 +1471,12 @@ proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
 			pctinad_care_2015
 			pctinad_care_2016
 
-			pctbirths_inadcare_asi_2009_11 
+			pctbirths_inadcare_asn_2009_11 
 			pctbirths_inadcare_asi_2010_12 
-			pctbirths_inadcare_asi_2011_13 
-			pctbirths_inadcare_asi_2012_14 
-			pctbirths_inadcare_asi_2013_15
-			pctbirths_inadcare_asi_2014_16
+			pctbirths_inadcare_asn_2011_13 
+			pctbirths_inadcare_asn_2012_14 
+			pctbirths_inadcare_asn_2013_15
+			pctbirths_inadcare_asn_2014_16
 			
 			pctbirths_inadcare_blk_2009_11
 			pctbirths_inadcare_blk_2010_12
@@ -1616,12 +1628,12 @@ proc print data= compile_mvt_tabs_full label noobs;
 			pctinad_care_2015
 			pctinad_care_2016
 	
-		   pctbirths_inadcare_asi_2009_11 
-			pctbirths_inadcare_asi_2010_12 
-			pctbirths_inadcare_asi_2011_13 
-			pctbirths_inadcare_asi_2012_14 
-			pctbirths_inadcare_asi_2013_15
-			pctbirths_inadcare_asi_2014_16
+		   pctbirths_inadcare_asn_2009_11 
+			pctbirths_inadcare_asn_2010_12 
+			pctbirths_inadcare_asn_2011_13 
+			pctbirths_inadcare_asn_2012_14 
+			pctbirths_inadcare_asn_2013_15
+			pctbirths_inadcare_asn_2014_16
 			
 			pctbirths_inadcare_blk_2009_11
 			pctbirths_inadcare_blk_2010_12
@@ -1657,14 +1669,14 @@ proc print data= compile_mvt_tabs_full label noobs;
 			pctbirths_low_wt_2015
 			pctbirths_low_wt_2016
 
-			pctbirths_low_wt_asi_2007_09
-			pctbirths_low_wt_asi_2008_10 
-			pctbirths_low_wt_asi_2009_11 
-			pctbirths_low_wt_asi_2010_12 
-			pctbirths_low_wt_asi_2011_13 
-			pctbirths_low_wt_asi_2012_14 
-			pctbirths_low_wt_asi_2013_15
-			pctbirths_low_wt_asi_2014_16
+			pctbirths_low_wt_asn_2007_09
+			pctbirths_low_wt_asn_2008_10 
+			pctbirths_low_wt_asn_2009_11 
+			pctbirths_low_wt_asn_2010_12 
+			pctbirths_low_wt_asn_2011_13 
+			pctbirths_low_wt_asn_2012_14 
+			pctbirths_low_wt_asn_2013_15
+			pctbirths_low_wt_asn_2014_16
 			
 			pctbirths_low_wt_blk_2007_09
 			pctbirths_low_wt_blk_2008_10
