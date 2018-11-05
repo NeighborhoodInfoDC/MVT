@@ -528,7 +528,7 @@ dat_org_geo=geo2010,
 dat_count_vars=  &ncdb_1980a,
 wgt_ds_name=general.Wt_tr10_city,
 wgt_org_geo=Geo2010,
-wgt_new_geo=ward2012, 
+wgt_new_geo=city, 
 wgt_id_vars=,
 wgt_wgt_var=PopWt,
 out_ds_name=get1980race_city,
@@ -651,10 +651,10 @@ run; %end;
  *merge in 1980 data;
   proc sort data=compile_mvt_tabs_tr10;
   by geo2010;
-  proc sort data=get1980race2;
+  proc sort data=get1980race;
   by geo2010;
   data compile_mvt_tabs_tr10_select (where=(target~=.));
-  	merge compile_mvt_tabs_tr10 get1980race2;
+  	merge compile_mvt_tabs_tr10 get1980race;
 	by geo2010;
 
 	if Geo2010 in("11001004701","11001004702") then target = 1;
@@ -842,7 +842,7 @@ data compile_mvt_tabs_full;
 		/*making these three year rolling averages**/
 
 			%let race_st=asn blk hsp wht oth;
-			%let race=asian black hisp white oth;
+			%let race=asian black hisp white oth_rac;
 			%let race_label=Asian Black Hispanic White Other;
 			
 			%do i=1 %to 5;
@@ -967,20 +967,20 @@ pctfs_hsp_2003 = fs_hisp_2003/fs_w_race_2003; pctfs_hsp_2004 = fs_hisp_2004/fs_w
 			pctfs_wht_2014 = fs_white_2014/fs_w_race_2014;
 			pctfs_wht_2015 = fs_white_2015/fs_w_race_2015;
 			pctfs_wht_2016 = fs_white_2016/fs_w_race_2016;
-			pctfs_oth_2003 = fs_other_2003/fs_w_race_2003;
-			pctfs_oth_2004 = fs_other_2004/fs_w_race_2004;
-			pctfs_oth_2005 = fs_other_2005/fs_w_race_2005;
-			pctfs_oth_2006 = fs_other_2006/fs_w_race_2006;
-			pctfs_oth_2007 = fs_other_2007/fs_w_race_2007;
-			pctfs_oth_2008 = fs_other_2008/fs_w_race_2008;
-			pctfs_oth_2009 = fs_other_2009/fs_w_race_2009;
-			pctfs_oth_2010 = fs_other_2010/fs_w_race_2010;
-			pctfs_oth_2011 = fs_other_2011/fs_w_race_2011;
-			pctfs_oth_2012 = fs_other_2012/fs_w_race_2012;
-			pctfs_oth_2013 = fs_other_2013/fs_w_race_2013; 
-			pctfs_oth_2014 = fs_other_2014/fs_w_race_2014;
-			pctfs_oth_2015 = fs_other_2015/fs_w_race_2015;
-			pctfs_oth_2016 = fs_other_2016/fs_w_race_2016;
+			pctfs_oth_2003 = fs_oth_rac_2003/fs_w_race_2003;
+			pctfs_oth_2004 = fs_oth_rac_2004/fs_w_race_2004;
+			pctfs_oth_2005 = fs_oth_rac_2005/fs_w_race_2005;
+			pctfs_oth_2006 = fs_oth_rac_2006/fs_w_race_2006;
+			pctfs_oth_2007 = fs_oth_rac_2007/fs_w_race_2007;
+			pctfs_oth_2008 = fs_oth_rac_2008/fs_w_race_2008;
+			pctfs_oth_2009 = fs_oth_rac_2009/fs_w_race_2009;
+			pctfs_oth_2010 = fs_oth_rac_2010/fs_w_race_2010;
+			pctfs_oth_2011 = fs_oth_rac_2011/fs_w_race_2011;
+			pctfs_oth_2012 = fs_oth_rac_2012/fs_w_race_2012;
+			pctfs_oth_2013 = fs_oth_rac_2013/fs_w_race_2013; 
+			pctfs_oth_2014 = fs_oth_rac_2014/fs_w_race_2014;
+			pctfs_oth_2015 = fs_oth_rac_2015/fs_w_race_2015;
+			pctfs_oth_2016 = fs_oth_rac_2016/fs_w_race_2016;
 
 
 pcttanf_asi_2003 = tanf_asian_2003/tanf_w_race_2003; pcttanf_asi_2004 = tanf_asian_2004/tanf_w_race_2004; pcttanf_asi_2005 = tanf_asian_2005/tanf_w_race_2005; pcttanf_asi_2006 = tanf_asian_2006/tanf_w_race_2006; pcttanf_asi_2007 = tanf_asian_2007/tanf_w_race_2007; pcttanf_asi_2008 = tanf_asian_2008/tanf_w_race_2008; pcttanf_asi_2009 = tanf_asian_2009/tanf_w_race_2009; pcttanf_asi_2010 = tanf_asian_2010/tanf_w_race_2010; pcttanf_asi_2011 = tanf_asian_2011/tanf_w_race_2011; pcttanf_asi_2012 = tanf_asian_2012/tanf_w_race_2012; pcttanf_asi_2013 = tanf_asian_2013/tanf_w_race_2013; pcttanf_asi_2014 = tanf_asian_2014/tanf_w_race_2014; pcttanf_asi_2015 = tanf_asian_2015/tanf_w_race_2015; pcttanf_asi_2016 = tanf_asian_2016/tanf_w_race_2016; 
@@ -1003,20 +1003,20 @@ pcttanf_hsp_2003 = tanf_hisp_2003/tanf_w_race_2003; pcttanf_hsp_2004 = tanf_hisp
 			pcttanf_wht_2015 = tanf_white_2015/tanf_w_race_2015;
 			pcttanf_wht_2016 = tanf_white_2016/tanf_w_race_2016;
 
-pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
-			pcttanf_oth_2004 = tanf_other_2004/tanf_w_race_2004;
-			pcttanf_oth_2005 = tanf_other_2005/tanf_w_race_2005;
-			pcttanf_oth_2006 = tanf_other_2006/tanf_w_race_2006;
-			pcttanf_oth_2007 = tanf_other_2007/tanf_w_race_2007;
-			pcttanf_oth_2008 = tanf_other_2008/tanf_w_race_2008;
-			pcttanf_oth_2009 = tanf_other_2009/tanf_w_race_2009;
-			pcttanf_oth_2010 = tanf_other_2010/tanf_w_race_2010;
-			pcttanf_oth_2011 = tanf_other_2011/tanf_w_race_2011;
-			pcttanf_oth_2012 = tanf_other_2012/tanf_w_race_2012;
-			pcttanf_oth_2013 = tanf_other_2013/tanf_w_race_2013; 
-			pcttanf_oth_2014 = tanf_other_2014/tanf_w_race_2014;
-			pcttanf_oth_2015 = tanf_other_2015/tanf_w_race_2015;
-			pcttanf_oth_2016 = tanf_other_2016/tanf_w_race_2016;
+			pcttanf_oth_2003 = tanf_oth_rac_2003/tanf_w_race_2003;
+			pcttanf_oth_2004 = tanf_oth_rac_2004/tanf_w_race_2004;
+			pcttanf_oth_2005 = tanf_oth_rac_2005/tanf_w_race_2005;
+			pcttanf_oth_2006 = tanf_oth_rac_2006/tanf_w_race_2006;
+			pcttanf_oth_2007 = tanf_oth_rac_2007/tanf_w_race_2007;
+			pcttanf_oth_2008 = tanf_oth_rac_2008/tanf_w_race_2008;
+			pcttanf_oth_2009 = tanf_oth_rac_2009/tanf_w_race_2009;
+			pcttanf_oth_2010 = tanf_oth_rac_2010/tanf_w_race_2010;
+			pcttanf_oth_2011 = tanf_oth_rac_2011/tanf_w_race_2011;
+			pcttanf_oth_2012 = tanf_oth_rac_2012/tanf_w_race_2012;
+			pcttanf_oth_2013 = tanf_oth_rac_2013/tanf_w_race_2013; 
+			pcttanf_oth_2014 = tanf_oth_rac_2014/tanf_w_race_2014;
+			pcttanf_oth_2015 = tanf_oth_rac_2015/tanf_w_race_2015;
+			pcttanf_oth_2016 = tanf_oth_rac_2016/tanf_w_race_2016;
 
 			**Population Change**;
 			
@@ -1472,7 +1472,7 @@ proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
 			pctinad_care_2016
 
 			pctbirths_inadcare_asn_2009_11 
-			pctbirths_inadcare_asi_2010_12 
+			pctbirths_inadcare_asn_2010_12 
 			pctbirths_inadcare_asn_2011_13 
 			pctbirths_inadcare_asn_2012_14 
 			pctbirths_inadcare_asn_2013_15
@@ -1696,12 +1696,6 @@ proc print data= compile_mvt_tabs_full label noobs;
 			pctbirths_low_wt_wht_2013_15 
 			pctbirths_low_wt_wht_2014_16 ;
 
-run;
-
-ods tagsets.excelxp options( sheet_name="Births by Race Inad Prenat Care");
-proc print data= compile_mvt_tabs_full label noobs;
-  var	geography
-			pct_inadcare_b: pct_inadcare_a: pct_inadcare_w: pct_inadcare_h: pct_inadcare_o:;
 run;
 
 ods tagsets.excelxp options( sheet_name="Crime Rates");
