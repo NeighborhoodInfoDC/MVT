@@ -33,7 +33,7 @@
 			TotPop_2012_16
 			NumHshlds_2012_16
 			Mtotpop_2012_16
-			
+
 			PopWithRace_2012_16
 			PopBlackNonHispBridge_2012_16
 			PopWhiteNonHispBridge_2012_16
@@ -196,7 +196,36 @@
 			NumOwnCstBurden_50_74K_2012_16
 			NumOwnCstBurden_75_99K_2012_16
 			NumOwnCstBurden_100_149_2012_16
-			NumOwnCstBurden_GT150K_2012_16;
+			NumOwnCstBurden_GT150K_2012_16
+
+
+			numhshlds_2012_16
+			hshldinc100000plus_2012_16
+			hshldinc100000to124999_2012_16
+			hshldinc10000to14999_2012_16
+			hshldinc125000to149999_2012_16
+			hshldinc150000to199999_2012_16
+			hshldinc15000to19999_2012_16
+			hshldinc15000to34999_2012_16
+			hshldinc200000andover_2012_16
+			hshldinc200000plus_2012_16
+			hshldinc20000to24999_2012_16
+			hshldinc25000to29999_2012_16
+			hshldinc30000to34999_2012_16
+			hshldinc35000to39999_2012_16
+			hshldinc35000to49999_2012_16
+			hshldinc40000to44999_2012_16
+			hshldinc45000to49999_2012_16
+			hshldinc50000to59999_2012_16
+			hshldinc50000to74999_2012_16
+			hshldinc60000to74999_2012_16
+			hshldinc75000to99999_2012_16
+			hshldincunder10000_2012_16
+			hshldincunder15000_2012_16
+
+
+
+;
 
 	%let ncdbold_vars = totpop_1980 totpop_1990 popwithrace_1980 popblacknonhispbridge_1980 
 			 popwhitenonhispbridge_1980 pophisp_1980
@@ -207,10 +236,16 @@
 			numhshlds_1990 numhshlds_2000 numoccupiedhsgunits_1990 numoccupiedhsgunits_2000 numoccupiedhsgunits_1990 numoccupiedhsgunits_2000 poppoorpersons_1990 poppoorpersons_2000 
 			personspovertydefined_1990 personspovertydefined_2000 Pop16andOverYears_1990 PopInCivLaborForce_1990
 			PopCivilianEmployed_1990 PopUnemployed_1990 Pop16andOverYears_2000 PopInCivLaborForce_2000
-			PopCivilianEmployed_2000 PopUnemployed_2000;
+			PopCivilianEmployed_2000 PopUnemployed_2000
+			popunder18years_1980 popunder18years_1990 popunder18years_2000 pop18to64years_1980 pop18to64years_1990 pop18to64years_2000 pop65andoveryears_1980 pop65andoveryears_1990 pop65andoveryears_2000
+			
+;
 
 	%let ncdb_vars = totpop_2010 popwithrace_2010 popasianpinonhispbridge_2010 popblacknonhispbridge_2010 popothernonhispbridge_2010 popmultiracialnonhisp_2010
 			popwhitenonhispbridge_2010 popnativeamnonhispbridge_2010 pophisp_2010 numoccupiedhsgunits_2010 totpop_2010 numoccupiedhsgunits_2010;
+
+			%let ncdb_1980a = SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1n SHR8D SHR9D SHR0D SHR1D;
+	
 
 	%let birth_vars =births_total_2003 births_total_2004 births_total_2005 births_total_2006
 				births_total_2007 births_total_2008 births_total_2009 births_total_2010 births_total_2011
@@ -289,6 +324,55 @@
 				births_prenat_inad_oth_2003 births_prenat_inad_oth_2004 births_prenat_inad_oth_2005 births_prenat_inad_oth_2006
 				births_prenat_inad_oth_2007 births_prenat_inad_oth_2008 births_prenat_inad_oth_2009 births_prenat_inad_oth_2010 births_prenat_inad_oth_2011
 				births_prenat_inad_oth_2012 births_prenat_inad_oth_2013 births_prenat_inad_oth_2014 births_prenat_inad_oth_2015 births_prenat_inad_oth_2016 
+
+				births_w_weight_2003 births_w_weight_2004 births_w_weight_2005 births_w_weight_2006	
+				births_w_weight_2007 births_w_weight_2008 births_w_weight_2009 births_w_weight_2010 births_w_weight_2011 
+				births_w_weight_2012 births_w_weight_2013 births_w_weight_2014 births_w_weight_2015 births_w_weight_2016
+
+				births_low_wt_2003 births_low_wt_2004 births_low_wt_2005 births_low_wt_2006	
+				births_low_wt_2007 births_low_wt_2008 births_low_wt_2009 births_low_wt_2010	births_low_wt_2011 
+				births_low_wt_2012 births_low_wt_2013 births_low_wt_2014 births_low_wt_2015 births_low_wt_2016 
+
+				births_low_wt_asn_2003 births_low_wt_asn_2004 births_low_wt_asn_2005 births_low_wt_asn_2006
+				births_low_wt_asn_2007 births_low_wt_asn_2008 births_low_wt_asn_2009 births_low_wt_asn_2010	births_low_wt_asn_2011 
+				births_low_wt_asn_2012 births_low_wt_asn_2013 births_low_wt_asn_2014 births_low_wt_asn_2015 births_low_wt_asn_2016
+
+				births_low_wt_blk_2003 births_low_wt_blk_2004 births_low_wt_blk_2005 births_low_wt_blk_2006
+				births_low_wt_blk_2007 births_low_wt_blk_2008 births_low_wt_blk_2009 births_low_wt_blk_2010 births_low_wt_blk_2011
+				births_low_wt_blk_2012 births_low_wt_blk_2013 births_low_wt_blk_2014 births_low_wt_blk_2015	births_low_wt_blk_2016
+
+				births_low_wt_hsp_2003 births_low_wt_hsp_2004 births_low_wt_hsp_2005 births_low_wt_hsp_2006
+				births_low_wt_hsp_2007 births_low_wt_hsp_2008 births_low_wt_hsp_2009 births_low_wt_hsp_2010 births_low_wt_hsp_2011
+				births_low_wt_hsp_2012 births_low_wt_hsp_2013 births_low_wt_hsp_2014 births_low_wt_hsp_2015	births_low_wt_hsp_2016
+
+				births_low_wt_oth_2003 births_low_wt_oth_2004 births_low_wt_oth_2005 births_low_wt_oth_2006
+				births_low_wt_oth_2007 births_low_wt_oth_2008 births_low_wt_oth_2009 births_low_wt_oth_2010 births_low_wt_oth_2011
+				births_low_wt_oth_2012 births_low_wt_oth_2013 births_low_wt_oth_2014 births_low_wt_oth_2015 births_low_wt_oth_2016
+
+				births_low_wt_wht_2003 births_low_wt_wht_2004 births_low_wt_wht_2005 births_low_wt_wht_2006
+				births_low_wt_wht_2007 births_low_wt_wht_2008 births_low_wt_wht_2009 births_low_wt_wht_2010	births_low_wt_wht_2011
+				births_low_wt_wht_2012 births_low_wt_wht_2013 births_low_wt_wht_2014 births_low_wt_wht_2015	births_low_wt_wht_2016
+
+				births_w_weight_asn_2003 births_w_weight_asn_2004 births_w_weight_asn_2005 births_w_weight_asn_2006
+				births_w_weight_asn_2007 births_w_weight_asn_2008 births_w_weight_asn_2009 births_w_weight_asn_2010	births_w_weight_asn_2011 
+				births_w_weight_asn_2012 births_w_weight_asn_2013 births_w_weight_asn_2014 births_w_weight_asn_2015	births_w_weight_asn_2016
+
+				births_w_weight_blk_2003 births_w_weight_blk_2004 births_w_weight_blk_2005 births_w_weight_blk_2006
+				births_w_weight_blk_2007 births_w_weight_blk_2008 births_w_weight_blk_2009 births_w_weight_blk_2010 births_w_weight_blk_2011
+				births_w_weight_blk_2012 births_w_weight_blk_2013 births_w_weight_blk_2014 births_w_weight_blk_2015 births_w_weight_blk_2016
+
+				births_w_weight_hsp_2003 births_w_weight_hsp_2004 births_w_weight_hsp_2005 births_w_weight_hsp_2006
+				births_w_weight_hsp_2007 births_w_weight_hsp_2008 births_w_weight_hsp_2009 births_w_weight_hsp_2010	births_w_weight_hsp_2011
+				births_w_weight_hsp_2012 births_w_weight_hsp_2013 births_w_weight_hsp_2014 births_w_weight_hsp_2015	births_w_weight_hsp_2016
+
+				births_w_weight_oth_2003 births_w_weight_oth_2004 births_w_weight_oth_2005 births_w_weight_oth_2006
+				births_w_weight_oth_2007 births_w_weight_oth_2008 births_w_weight_oth_2009 births_w_weight_oth_2010	births_w_weight_oth_2011
+				births_w_weight_oth_2012 births_w_weight_oth_2013 births_w_weight_oth_2014 births_w_weight_oth_2015 births_w_weight_oth_2016
+
+				births_w_weight_wht_2003 births_w_weight_wht_2004 births_w_weight_wht_2005 births_w_weight_wht_2006
+				births_w_weight_wht_2007 births_w_weight_wht_2008 births_w_weight_wht_2009 births_w_weight_wht_2010 births_w_weight_wht_2011
+				births_w_weight_wht_2012 births_w_weight_wht_2013 births_w_weight_wht_2014 births_w_weight_wht_2015 births_w_weight_wht_2016
+
 ;
 
 
@@ -393,7 +477,9 @@
 		%let price_vars = 
 				mprice2003 mprice2004 mprice2005 mprice2006 mprice2007 
 				mprice2008 mprice2009 mprice2010 mprice2011 mprice2012 
-				mprice2013 mprice2014 mprice2015 mprice2016 mprice2017 mprice2018;
+				mprice2013 mprice2014 mprice2015 mprice2016 mprice2017 mprice2018 mprice2003 mCondoprice2004 mCondoprice2005 mCondoprice2006 mCondoprice2007 
+				mCondoprice2008 mCondoprice2009 mCondoprice2010 mCondoprice2011 mCondoprice2012 
+				mCondoprice2013 mCondoprice2014 mCondoprice2015 mCondoprice2016 mCondoprice2017 mCondoprice2018;
 
 		%let subs_vars = Proj_Units_Assist_Min_Sum Proj_Units_Assist_Max_Sum;
 
@@ -407,7 +493,51 @@ format city $CITY16.;
 city = "1";
 run;
 
+/*compile 1980 asian data*/ 
+	data get1980race;
+		set ncdb.Ncdb_master_update (where=(ucounty='11001'));
+		keep geo2010  &ncdb_1980a;
+	 
+		shrnhj1n=(shrnhi1n +shrnha1n + shrnho1n);
 
+		label shrnhj1n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 2010"
+			  shrnhj0n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 2000"
+			   shrnhj9n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 1990"
+			    shrnhj8n="Total NH Amer Indian, Asian, Pacific Islander, or Other race, 1980"
+		;
+		
+	run;
+%Transform_geo_data(
+keep_nonmatch=n,
+dat_ds_name=work.get1980race,
+dat_org_geo=geo2010,
+dat_count_vars=  &ncdb_1980a,
+wgt_ds_name=general.Wt_tr10_ward12,
+wgt_org_geo=Geo2010,
+wgt_new_geo=ward2012, 
+wgt_id_vars=,
+wgt_wgt_var=PopWt,
+out_ds_name=get1980race_wd12,
+out_ds_label=%str(NCDB asian-other race vars),
+calc_vars=,calc_vars_labels=
+)
+%Transform_geo_data(
+keep_nonmatch=n,
+dat_ds_name=work.get1980race,
+dat_org_geo=geo2010,
+dat_count_vars=  &ncdb_1980a,
+wgt_ds_name=general.Wt_tr10_city,
+wgt_org_geo=Geo2010,
+wgt_new_geo=city, 
+wgt_id_vars=,
+wgt_wgt_var=PopWt,
+out_ds_name=get1980race_city,
+out_ds_label=%str(NCDB asian-other race vars),
+calc_vars=,calc_vars_labels=
+)
+
+
+/*compile other data*/ 
 %macro Compile_mvt_data (geo, geosuf);
 
 proc sort data=project out = project_tab_&geosuf;
@@ -468,6 +598,12 @@ data sales_res;
 	
 			%dollar_convert( saleprice, sale_adj, saleyear, 2017, series=CUUR0000SA0L2 )
 
+			total=1;
+			condo=0;
+			sf=0;
+			if ui_proptype="11" then do; sale_condo_adj=sale_adj; condo=1; end;
+			if ui_proptype="10" then do; sale_sf_adj=sale_adj;sf=1; end;
+
 run;
 
 proc sort data=sales_res;
@@ -476,24 +612,32 @@ run;
 
 proc tabulate data = sales_res out = price_tab_&geosuf;
 class &geo saleyear;
-var sale_adj ;
-table &geo, saleyear *(median) *sale_adj;
+var sale_adj sale_sf_adj sale_condo_adj;
+table &geo, saleyear *(median) *(sale_adj sale_sf_adj sale_condo_adj);
 run;
 
 proc transpose data=price_tab_&geosuf out=price_&geosuf prefix=mprice;
     by &geo ;
     id saleyear;
-    var sale_adj_median;
+    var sale_adj_median ;
 run;
+
+proc transpose data=price_tab_&geosuf out=priceCondo_&geosuf prefix=mCondoprice;
+    by &geo ;
+    id saleyear;
+    var sale_condo_adj_median;
+run;
+
+
 
 %if &geo = ward2012 %then %do;	
 data compile_mvt_tabs_wd12_full;
-	merge compile_mvt_tabs_wd12 price_wd12 (keep= &geo &price_vars);
+	merge compile_mvt_tabs_wd12 price_wd12 (drop= _name_) Pricecondo_wd12  (drop=_name_);
 	by &geo;
 run; %end;
 %else %if &geo = city %then %do;
 data compile_mvt_tabs_city_full;
-	merge compile_mvt_tabs_city price_city (keep= &geo &price_vars);
+	merge compile_mvt_tabs_city price_city (drop= _name_)  priceCondo_city (drop= _name_);
 	by &geo;
 run; %end;
 %mend Compile_mvt_data;
@@ -504,23 +648,33 @@ run; %end;
 %Compile_mvt_data (city, city);
 
 **Select out target areas**;
+ *merge in 1980 data;
+  proc sort data=compile_mvt_tabs_tr10;
+  by geo2010;
+  proc sort data=get1980race;
+  by geo2010;
+  data compile_mvt_tabs_tr10_select (where=(target~=.));
+  	merge compile_mvt_tabs_tr10 get1980race;
+	by geo2010;
 
-data compile_mvt_tabs_tr10_select;
-	set compile_mvt_tabs_tr10;
 	if Geo2010 in("11001004701","11001004702") then target = 1;
 	if Geo2010 in("11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then target = 2;
-	if Geo2010 not in("11001004701","11001004702","11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then delete;
-run;
+	run;
+	proc sort data=Get1980race_wd12;
+	by ward2012;
+	proc sort data=compile_mvt_tabs_wd12_full;
+	by ward2012;
 
-data compile_mvt_tabs_wd12_select;
-	set compile_mvt_tabs_wd12_full;
-	if Ward2012 in("3","4","5","7","8") then delete;
+ data compile_mvt_tabs_wd12_select;
+	merge compile_mvt_tabs_wd12_full Get1980race_wd12;
+	by Ward2012;
+	if Ward2012 in("3","4","1","7","8") then delete;
 	length geography $20.;
 	geography = Ward2012;
 run;
 
 data compile_mvt_tabs_city_select;
-	set compile_mvt_tabs_city_full;
+	merge compile_mvt_tabs_city_full Get1980race_city;
 	length geography $20.;
 	geography = "Washington DC";
 run;
@@ -529,9 +683,10 @@ run;
 
 proc sort data = compile_mvt_tabs_tr10_select; by target; run;
 
-proc summary data = compile_mvt_tabs_tr10_select; output out = compile_mvt_tabs_target sum=; 
+proc summary data = compile_mvt_tabs_tr10_select; 
 	where target = 1;
-	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980a &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	output out = compile_mvt_tabs_target sum=; 
 run;
 
 data compile_mvt_tabs_target_select;
@@ -542,7 +697,7 @@ data compile_mvt_tabs_target_select;
 run;
 
 proc summary data = compile_mvt_tabs_tr10_select ; output out = compile_mvt_tabs_target_adj sum=;
-	var &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
+	var &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980a &sales_vars &crime_vars &birth_vars &tanf_vars &fs_vars &unit_vars &subs_vars &plan_vars;
 run;
 
 data compile_mvt_tabs_adj_select;
@@ -560,6 +715,12 @@ data sales_res_target;
 	if Geo2010 in("11001004701","11001004702") then target = 1;
 	if Geo2010 in("11001010600","11001004600","11001004802","11001004902","11001005800","11001005900") then target = 2;
 	%dollar_convert( saleprice, sale_adj, saleyear, 2017, series=CUUR0000SA0L2 )
+
+			total=1;
+			condo=0;
+			sf=0;
+			if ui_proptype="11" then do; sale_condo_adj=sale_adj; condo=1; end;
+			if ui_proptype="10" then do; sale_sf_adj=sale_adj;sf=1; end;
 run;
 
 proc sort data=sales_res_target;
@@ -568,22 +729,26 @@ run;
 
 proc tabulate data = sales_res_target out = price_tab_target;
 class target saleyear;
-var sale_adj ;
-table target, saleyear *(median) *sale_adj;
+var sale_adj sale_sf_adj sale_condo_adj ;
+table target, saleyear *(median) * (sale_adj sale_sf_adj sale_condo_adj);
 run;
 
 proc transpose data=price_tab_target out=price_target prefix=mprice;
     by target ;
     id saleyear;
-    var sale_adj_median;
+    var sale_adj_median ;
 run;
-
+proc transpose data=price_tab_target out=priceCondo_target prefix=mCondoprice;
+    by target ;
+    id saleyear;
+    var sale_condo_adj_median ;
+run;
 data compile_mvt_tabs_tracts;
 	set compile_mvt_tabs_target_select compile_mvt_tabs_adj_select;
 run;
 
 data compile_mvt_tabs_tracts_select;
-	merge compile_mvt_tabs_tracts price_target (keep= target &price_vars);
+	merge compile_mvt_tabs_tracts price_target (drop=_name_) priceCondo_target (drop=_name_);
 	by target;
 run;
 
@@ -600,6 +765,7 @@ data compile_mvt_tabs_full;
 			PctMult&_years. = PopMultiRacialnonhisp&_years. / popwithrace&_years.;
 			PctNat&_years. = PopNativeAmnonhispbridge&_years. / popwithrace&_years.;
 			PctOth&_years. = popothernonhispbridge&_years. / popwithrace&_years.;
+
 
 		/*Education*/
 			PctHS&_years. = (pop25andoverwhs&_years.-pop25andoverwcollege&_years.) / pop25andoveryears&_years.;
@@ -672,46 +838,97 @@ data compile_mvt_tabs_full;
 
 
 		/*Births by race*/
+		%macro birthsbyrace;
+		/*making these three year rolling averages**/
 
-pctbirths_asi_2003 = births_asian_2003/births_w_race_2003; pctbirths_asi_2004 = births_asian_2004/births_w_race_2004; pctbirths_asi_2005 = births_asian_2005/births_w_race_2005; pctbirths_asi_2006 = births_asian_2006/births_w_race_2006; pctbirths_asi_2007 = births_asian_2007/births_w_race_2007; pctbirths_asi_2008 = births_asian_2008/births_w_race_2008; pctbirths_asi_2009 = births_asian_2009/births_w_race_2009; pctbirths_asi_2010 = births_asian_2010/births_w_race_2010; pctbirths_asi_2011 = births_asian_2011/births_w_race_2011; pctbirths_asi_2012 = births_asian_2012/births_w_race_2012; pctbirths_asi_2013 = births_asian_2013/births_w_race_2013; pctbirths_asi_2014 = births_asian_2014/births_w_race_2014; pctbirths_asi_2015 = births_asian_2015/births_w_race_2015; pctbirths_asi_2016 = births_asian_2016/births_w_race_2016; 
-			 
-pctbirths_blk_2003 = births_black_2003/births_w_race_2003; pctbirths_blk_2004 = births_black_2004/births_w_race_2004; pctbirths_blk_2005 = births_black_2005/births_w_race_2005; pctbirths_blk_2006 = births_black_2006/births_w_race_2006; pctbirths_blk_2007 = births_black_2007/births_w_race_2007; pctbirths_blk_2008 = births_black_2008/births_w_race_2008; pctbirths_blk_2009 = births_black_2009/births_w_race_2009; pctbirths_blk_2010 = births_black_2010/births_w_race_2010; pctbirths_blk_2011 = births_black_2011/births_w_race_2011; pctbirths_blk_2012 = births_black_2012/births_w_race_2012; pctbirths_blk_2013 = births_black_2013/births_w_race_2013; pctbirths_blk_2014 = births_black_2014/births_w_race_2014; pctbirths_blk_2015 = births_black_2015/births_w_race_2015; pctbirths_blk_2016 = births_black_2016/births_w_race_2016; 
-pctbirths_hsp_2003 = births_hisp_2003/births_w_race_2003; pctbirths_hsp_2004 = births_hisp_2004/births_w_race_2004; pctbirths_hsp_2005 = births_hisp_2005/births_w_race_2005; pctbirths_hsp_2006 = births_hisp_2006/births_w_race_2006; pctbirths_hsp_2007 = births_hisp_2007/births_w_race_2007; pctbirths_hsp_2008 = births_hisp_2008/births_w_race_2008; pctbirths_hsp_2009 = births_hisp_2009/births_w_race_2009; pctbirths_hsp_2010 = births_hisp_2010/births_w_race_2010; pctbirths_hsp_2011 = births_hisp_2011/births_w_race_2011; pctbirths_hsp_2012 = births_hisp_2012/births_w_race_2012; pctbirths_hsp_2013 = births_hisp_2013/births_w_race_2013; pctbirths_hsp_2014 = births_hisp_2014/births_w_race_2014; pctbirths_hsp_2015 = births_hisp_2015/births_w_race_2015; pctbirths_hsp_2016 = births_hisp_2016/births_w_race_2016; 
+			%let race_st=asn blk hsp wht oth;
+			%let race=asian black hisp white oth_rac;
+			%let race_label=Asian Black Hispanic White Other;
+			
+			%do i=1 %to 5;
+				%let rc_st=%scan(&race_st.,&i.," "); 
+				%let rc=%scan(&race.,&i," "); 
+				%let rc_lbl=%scan(&race_label.,&i.," ");
 
-			pctbirths_wht_2003 = births_white_2003/births_w_race_2003;
-			pctbirths_wht_2004 = births_white_2004/births_w_race_2004;
-			pctbirths_wht_2005 = births_white_2005/births_w_race_2005;
-			pctbirths_wht_2006 = births_white_2006/births_w_race_2006;
-			pctbirths_wht_2007 = births_white_2007/births_w_race_2007;
-			pctbirths_wht_2008 = births_white_2008/births_w_race_2008;
-			pctbirths_wht_2009 = births_white_2009/births_w_race_2009;
-			pctbirths_wht_2010 = births_white_2010/births_w_race_2010;
-			pctbirths_wht_2011 = births_white_2011/births_w_race_2011;
-			pctbirths_wht_2012 = births_white_2012/births_w_race_2012;
-			pctbirths_wht_2013 = births_white_2013/births_w_race_2013; 
-			pctbirths_wht_2014 = births_white_2014/births_w_race_2014;
-			pctbirths_wht_2015 = births_white_2015/births_w_race_2015;
-			pctbirths_wht_2016 = births_white_2016/births_w_race_2016;
+				pctbirths_&rc_st._2003_05=(births_&rc._2003 + births_&rc._2004 + births_&rc._2005 ) / (births_w_race_2003 + births_w_race_2004 + births_w_race_2005);
+				pctbirths_&rc_st._2004_06=(births_&rc._2004 + births_&rc._2005 + births_&rc._2006 ) / (births_w_race_2004 + births_w_race_2005 + births_w_race_2006);
+				pctbirths_&rc_st._2005_07=(births_&rc._2005 + births_&rc._2006 + births_&rc._2007 ) / (births_w_race_2005 + births_w_race_2006 + births_w_race_2007);
+				pctbirths_&rc_st._2006_08=(births_&rc._2006 + births_&rc._2007 + births_&rc._2008 ) / (births_w_race_2006 + births_w_race_2007 + births_w_race_2008);
+				pctbirths_&rc_st._2007_09=(births_&rc._2007 + births_&rc._2008 + births_&rc._2009 ) / (births_w_race_2007 + births_w_race_2008 + births_w_race_2009);
+				pctbirths_&rc_st._2008_10=(births_&rc._2008 + births_&rc._2009 + births_&rc._2010 ) / (births_w_race_2008 + births_w_race_2009 + births_w_race_2010);
+				pctbirths_&rc_st._2009_11=(births_&rc._2009 + births_&rc._2010 + births_&rc._2011 ) / (births_w_race_2009 + births_w_race_2010 + births_w_race_2011);
+				pctbirths_&rc_st._2010_12=(births_&rc._2010 + births_&rc._2011 + births_&rc._2012 ) / (births_w_race_2010 + births_w_race_2011 + births_w_race_2012);
+				pctbirths_&rc_st._2011_13=(births_&rc._2011 + births_&rc._2012 + births_&rc._2013 ) / (births_w_race_2011 + births_w_race_2012 + births_w_race_2013);
+				pctbirths_&rc_st._2012_14=(births_&rc._2012 + births_&rc._2013 + births_&rc._2014 ) / (births_w_race_2012 + births_w_race_2013 + births_w_race_2014);
+				pctbirths_&rc_st._2013_15=(births_&rc._2013 + births_&rc._2014 + births_&rc._2015 ) / (births_w_race_2013 + births_w_race_2014 + births_w_race_2015);
+				pctbirths_&rc_st._2014_16=(births_&rc._2014 + births_&rc._2015 + births_&rc._2016 ) / (births_w_race_2014 + births_w_race_2015 + births_w_race_2016);
 
-						pctbirths_oth_2003 = births_oth_rac_2003/births_w_race_2003;
-			pctbirths_oth_2004 = births_oth_rac_2004/births_w_race_2004;
-			pctbirths_oth_2005 = births_oth_rac_2005/births_w_race_2005;
-			pctbirths_oth_2006 = births_oth_rac_2006/births_w_race_2006;
-			pctbirths_oth_2007 = births_oth_rac_2007/births_w_race_2007;
-			pctbirths_oth_2008 = births_oth_rac_2008/births_w_race_2008;
-			pctbirths_oth_2009 = births_oth_rac_2009/births_w_race_2009;
-			pctbirths_oth_2010 = births_oth_rac_2010/births_w_race_2010;
-			pctbirths_oth_2011 = births_oth_rac_2011/births_w_race_2011;
-			pctbirths_oth_2012 = births_oth_rac_2012/births_w_race_2012;
-			pctbirths_oth_2013 = births_oth_rac_2013/births_w_race_2013; 
-			pctbirths_oth_2014 = births_oth_rac_2014/births_w_race_2014;
-			pctbirths_oth_2015 = births_oth_rac_2015/births_w_race_2015;
-			pctbirths_oth_2016 = births_oth_rac_2016/births_w_race_2016;
+				pctbirths_low_wt_&rc_st._2003_05=(births_low_wt_&rc_st._2003 + births_low_wt_&rc_st._2004 + births_low_wt_&rc_st._2005 ) / (births_w_weight_&rc_st._2003 + births_w_weight_&rc_st._2004 + births_w_weight_&rc_st._2005);
+				pctbirths_low_wt_&rc_st._2004_06=(births_low_wt_&rc_st._2004 + births_low_wt_&rc_st._2005 + births_low_wt_&rc_st._2006 ) / (births_w_weight_&rc_st._2004 + births_w_weight_&rc_st._2005 + births_w_weight_&rc_st._2006);
+				pctbirths_low_wt_&rc_st._2005_07=(births_low_wt_&rc_st._2005 + births_low_wt_&rc_st._2006 + births_low_wt_&rc_st._2007 ) / (births_w_weight_&rc_st._2005 + births_w_weight_&rc_st._2006 + births_w_weight_&rc_st._2007);
+				pctbirths_low_wt_&rc_st._2006_08=(births_low_wt_&rc_st._2006 + births_low_wt_&rc_st._2007 + births_low_wt_&rc_st._2008 ) / (births_w_weight_&rc_st._2006 + births_w_weight_&rc_st._2007 + births_w_weight_&rc_st._2008);
+				pctbirths_low_wt_&rc_st._2007_09=(births_low_wt_&rc_st._2007 + births_low_wt_&rc_st._2008 + births_low_wt_&rc_st._2009 ) / (births_w_weight_&rc_st._2007 + births_w_weight_&rc_st._2008 + births_w_weight_&rc_st._2009);
+				pctbirths_low_wt_&rc_st._2008_10=(births_low_wt_&rc_st._2008 + births_low_wt_&rc_st._2009 + births_low_wt_&rc_st._2010 ) / (births_w_weight_&rc_st._2008 + births_w_weight_&rc_st._2009 + births_w_weight_&rc_st._2010);
+				pctbirths_low_wt_&rc_st._2009_11=(births_low_wt_&rc_st._2009 + births_low_wt_&rc_st._2010 + births_low_wt_&rc_st._2011 ) / (births_w_weight_&rc_st._2009 + births_w_weight_&rc_st._2010 + births_w_weight_&rc_st._2011);
+				pctbirths_low_wt_&rc_st._2010_12=(births_low_wt_&rc_st._2010 + births_low_wt_&rc_st._2011 + births_low_wt_&rc_st._2012 ) / (births_w_weight_&rc_st._2010 + births_w_weight_&rc_st._2011 + births_w_weight_&rc_st._2012);
+				pctbirths_low_wt_&rc_st._2011_13=(births_low_wt_&rc_st._2011 + births_low_wt_&rc_st._2012 + births_low_wt_&rc_st._2013 ) / (births_w_weight_&rc_st._2011 + births_w_weight_&rc_st._2012 + births_w_weight_&rc_st._2013);
+				pctbirths_low_wt_&rc_st._2012_14=(births_low_wt_&rc_st._2012 + births_low_wt_&rc_st._2013 + births_low_wt_&rc_st._2014 ) / (births_w_weight_&rc_st._2012 + births_w_weight_&rc_st._2013 + births_w_weight_&rc_st._2014);
+				pctbirths_low_wt_&rc_st._2013_15=(births_low_wt_&rc_st._2013 + births_low_wt_&rc_st._2014 + births_low_wt_&rc_st._2015 ) / (births_w_weight_&rc_st._2013 + births_w_weight_&rc_st._2014 + births_w_weight_&rc_st._2015);
+				pctbirths_low_wt_&rc_st._2014_16=(births_low_wt_&rc_st._2014 + births_low_wt_&rc_st._2015 + births_low_wt_&rc_st._2016 ) / (births_w_weight_&rc_st._2014 + births_w_weight_&rc_st._2015 + births_w_weight_&rc_st._2016);
 
+
+				pctbirths_inadcare_&rc_st._2003_05=(births_prenat_inad_&rc_st._2003 + births_prenat_inad_&rc_st._2004 + births_prenat_inad_&rc_st._2005 ) / (births_w_prenat_&rc_st._2003 + births_w_prenat_&rc_st._2004 + births_w_prenat_&rc_st._2005);
+				pctbirths_inadcare_&rc_st._2004_06=(births_prenat_inad_&rc_st._2004 + births_prenat_inad_&rc_st._2005 + births_prenat_inad_&rc_st._2006 ) / (births_w_prenat_&rc_st._2004 + births_w_prenat_&rc_st._2005 + births_w_prenat_&rc_st._2006);
+				pctbirths_inadcare_&rc_st._2005_07=(births_prenat_inad_&rc_st._2005 + births_prenat_inad_&rc_st._2006 + births_prenat_inad_&rc_st._2007 ) / (births_w_prenat_&rc_st._2005 + births_w_prenat_&rc_st._2006 + births_w_prenat_&rc_st._2007);
+				pctbirths_inadcare_&rc_st._2006_08=(births_prenat_inad_&rc_st._2006 + births_prenat_inad_&rc_st._2007 + births_prenat_inad_&rc_st._2008 ) / (births_w_prenat_&rc_st._2006 + births_w_prenat_&rc_st._2007 + births_w_prenat_&rc_st._2008);
+				pctbirths_inadcare_&rc_st._2007_09=(births_prenat_inad_&rc_st._2007 + births_prenat_inad_&rc_st._2008 + births_prenat_inad_&rc_st._2009 ) / (births_w_prenat_&rc_st._2007 + births_w_prenat_&rc_st._2008 + births_w_prenat_&rc_st._2009);
+				pctbirths_inadcare_&rc_st._2008_10=(births_prenat_inad_&rc_st._2008 + births_prenat_inad_&rc_st._2009 + births_prenat_inad_&rc_st._2010 ) / (births_w_prenat_&rc_st._2008 + births_w_prenat_&rc_st._2009 + births_w_prenat_&rc_st._2010);
+				pctbirths_inadcare_&rc_st._2009_11=(births_prenat_inad_&rc_st._2009 + births_prenat_inad_&rc_st._2010 + births_prenat_inad_&rc_st._2011 ) / (births_w_prenat_&rc_st._2009 + births_w_prenat_&rc_st._2010 + births_w_prenat_&rc_st._2011);
+				pctbirths_inadcare_&rc_st._2010_12=(births_prenat_inad_&rc_st._2010 + births_prenat_inad_&rc_st._2011 + births_prenat_inad_&rc_st._2012 ) / (births_w_prenat_&rc_st._2010 + births_w_prenat_&rc_st._2011 + births_w_prenat_&rc_st._2012);
+				pctbirths_inadcare_&rc_st._2011_13=(births_prenat_inad_&rc_st._2011 + births_prenat_inad_&rc_st._2012 + births_prenat_inad_&rc_st._2013 ) / (births_w_prenat_&rc_st._2011 + births_w_prenat_&rc_st._2012 + births_w_prenat_&rc_st._2013);
+				pctbirths_inadcare_&rc_st._2012_14=(births_prenat_inad_&rc_st._2012 + births_prenat_inad_&rc_st._2013 + births_prenat_inad_&rc_st._2014 ) / (births_w_prenat_&rc_st._2012 + births_w_prenat_&rc_st._2013 + births_w_prenat_&rc_st._2014);
+				pctbirths_inadcare_&rc_st._2013_15=(births_prenat_inad_&rc_st._2013 + births_prenat_inad_&rc_st._2014 + births_prenat_inad_&rc_st._2015 ) / (births_w_prenat_&rc_st._2013 + births_w_prenat_&rc_st._2014 + births_w_prenat_&rc_st._2015);
+				pctbirths_inadcare_&rc_st._2014_16=(births_prenat_inad_&rc_st._2014 + births_prenat_inad_&rc_st._2015 + births_prenat_inad_&rc_st._2016 ) / (births_w_prenat_&rc_st._2014 + births_w_prenat_&rc_st._2015 + births_w_prenat_&rc_st._2016);
+				
+				label pctbirths_inadcare_&rc_st._2003_05="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2003-05"
+				 pctbirths_inadcare_&rc_st._2004_06="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2004-06"
+				  pctbirths_inadcare_&rc_st._2005_07="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2005-07"
+					pctbirths_inadcare_&rc_st._2006_08="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2006-08"
+				   pctbirths_inadcare_&rc_st._2007_09="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2007-09"
+				    pctbirths_inadcare_&rc_st._2008_10="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2008-10"
+					 pctbirths_inadcare_&rc_st._2009_11="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2009-11"
+					  pctbirths_inadcare_&rc_st._2010_12="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2010-12"
+					   pctbirths_inadcare_&rc_st._2011_13="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2011-13"
+					    pctbirths_inadcare_&rc_st._2012_14="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2012-14"
+						 pctbirths_inadcare_&rc_st._2013_15="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2013-15"
+						  pctbirths_inadcare_&rc_st._2014_16="Percent of &rc_lbl. births with Inadequate Prenatal Care, 2014-16"
+					;
+				%end; 
+
+			%mend birthsbyrace; 
+			%birthsbyrace; 
+
+			/* Birth weights by rate*/
+			pctbirths_low_wt_2003 = births_low_wt_2003/births_w_weight_2003;
+			pctbirths_low_wt_2004 = births_low_wt_2004/births_w_weight_2004;
+			pctbirths_low_wt_2005 = births_low_wt_2005/births_w_weight_2005;
+			pctbirths_low_wt_2006 = births_low_wt_2006/births_w_weight_2006;
+			pctbirths_low_wt_2007 = births_low_wt_2007/births_w_weight_2007;
+			pctbirths_low_wt_2008 = births_low_wt_2008/births_w_weight_2008;
+			pctbirths_low_wt_2009 = births_low_wt_2009/births_w_weight_2009;
+			pctbirths_low_wt_2010 = births_low_wt_2010/births_w_weight_2010;
+			pctbirths_low_wt_2011 = births_low_wt_2011/births_w_weight_2011;
+			pctbirths_low_wt_2012 = births_low_wt_2012/births_w_weight_2012;
+			pctbirths_low_wt_2013 = births_low_wt_2013/births_w_weight_2013;
+			pctbirths_low_wt_2014 = births_low_wt_2014/births_w_weight_2014;
+			pctbirths_low_wt_2015 = births_low_wt_2015/births_w_weight_2015;
+			pctbirths_low_wt_2016 = births_low_wt_2016/births_w_weight_2016;
+
+		
 
 			/* Births with Prenatal care*/
 
-pctinad_care_2003 = births_prenat_inad_2003/births_w_prenat_2003;
+            pctinad_care_2003 = births_prenat_inad_2003/births_w_prenat_2003;
 			pctinad_care_2004 = births_prenat_inad_2004/births_w_prenat_2004;
 			pctinad_care_2005 = births_prenat_inad_2005/births_w_prenat_2005;
 			pctinad_care_2006 = births_prenat_inad_2006/births_w_prenat_2006;
@@ -726,28 +943,7 @@ pctinad_care_2003 = births_prenat_inad_2003/births_w_prenat_2003;
 			pctinad_care_2015 = births_prenat_inad_2015/births_w_prenat_2015;
 			pctinad_care_2016 = births_prenat_inad_2016/births_w_prenat_2016;
 
-						 
-pct_inadcare_blk_2003 = births_prenat_inad_blk_2003/births_w_prenat_blk_2003; pct_inadcare_blk_2004 = births_prenat_inad_blk_2004/births_w_prenat_blk_2004; pct_inadcare_blk_2005 = births_prenat_inad_blk_2005/births_w_prenat_blk_2005; pct_inadcare_blk_2006 = births_prenat_inad_blk_2006/births_w_prenat_blk_2006; pct_inadcare_blk_2007 = births_prenat_inad_blk_2007/births_w_prenat_blk_2007; pct_inadcare_blk_2008 = births_prenat_inad_blk_2008/births_w_prenat_blk_2008; pct_inadcare_blk_2009 = births_prenat_inad_blk_2009/births_w_prenat_blk_2009; pct_inadcare_blk_2010 = births_prenat_inad_blk_2010/births_w_prenat_blk_2010; pct_inadcare_blk_2011 = births_prenat_inad_blk_2011/births_w_prenat_blk_2011; pct_inadcare_blk_2012 = births_prenat_inad_blk_2012/births_w_prenat_blk_2012; pct_inadcare_blk_2013 = births_prenat_inad_blk_2013/births_w_prenat_blk_2013; pct_inadcare_blk_2014 = births_prenat_inad_blk_2014/births_w_prenat_blk_2014; pct_inadcare_blk_2015 = births_prenat_inad_blk_2015/births_w_prenat_blk_2015; pct_inadcare_blk_2016 = births_prenat_inad_blk_2016/births_w_prenat_blk_2016;
 
-pct_inadcare_asi_2003 = births_prenat_inad_asn_2003/births_w_prenat_asn_2003; pct_inadcare_asi_2004 = births_prenat_inad_asn_2004/births_w_prenat_asn_2004; pct_inadcare_asi_2005 = births_prenat_inad_asn_2005/births_w_prenat_asn_2005; pct_inadcare_asi_2006 = births_prenat_inad_asn_2006/births_w_prenat_asn_2006; pct_inadcare_asi_2007 = births_prenat_inad_asn_2007/births_w_prenat_asn_2007; pct_inadcare_asi_2008 = births_prenat_inad_asn_2008/births_w_prenat_asn_2008; pct_inadcare_asi_2009 = births_prenat_inad_asn_2009/births_w_prenat_asn_2009; pct_inadcare_asi_2010 = births_prenat_inad_asn_2010/births_w_prenat_asn_2010; pct_inadcare_asi_2011 = births_prenat_inad_asn_2011/births_w_prenat_asn_2011; pct_inadcare_asi_2012 = births_prenat_inad_asn_2012/births_w_prenat_asn_2012; pct_inadcare_asi_2013 = births_prenat_inad_asn_2013/births_w_prenat_asn_2013; pct_inadcare_asi_2014 = births_prenat_inad_asn_2014/births_w_prenat_asn_2014; pct_inadcare_asi_2015 = births_prenat_inad_asn_2015/births_w_prenat_asn_2015; pct_inadcare_asi_2016 = births_prenat_inad_asn_2016/births_w_prenat_asn_2016; 
-pct_inadcare_wht_2003 = births_prenat_inad_wht_2003/births_w_prenat_wht_2003; pct_inadcare_wht_2004 = births_prenat_inad_wht_2004/births_w_prenat_wht_2004; pct_inadcare_wht_2005 = births_prenat_inad_wht_2005/births_w_prenat_wht_2005; pct_inadcare_wht_2006 = births_prenat_inad_wht_2006/births_w_prenat_wht_2006; pct_inadcare_wht_2007 = births_prenat_inad_wht_2007/births_w_prenat_wht_2007; pct_inadcare_wht_2008 = births_prenat_inad_wht_2008/births_w_prenat_wht_2008; pct_inadcare_wht_2009 = births_prenat_inad_wht_2009/births_w_prenat_wht_2009; pct_inadcare_wht_2010 = births_prenat_inad_wht_2010/births_w_prenat_wht_2010; pct_inadcare_wht_2011 = births_prenat_inad_wht_2011/births_w_prenat_wht_2011; pct_inadcare_wht_2012 = births_prenat_inad_wht_2012/births_w_prenat_wht_2012; pct_inadcare_wht_2013 = births_prenat_inad_wht_2013/births_w_prenat_wht_2013; pct_inadcare_wht_2014 = births_prenat_inad_wht_2014/births_w_prenat_wht_2014; pct_inadcare_wht_2015 = births_prenat_inad_wht_2015/births_w_prenat_wht_2015; pct_inadcare_wht_2016 = births_prenat_inad_wht_2016/births_w_prenat_wht_2016; 
-
-pct_inadcare_hsp_2003 = births_prenat_inad_hsp_2003/births_w_prenat_hsp_2003; pct_inadcare_hsp_2004 = births_prenat_inad_hsp_2004/births_w_prenat_hsp_2004; pct_inadcare_hsp_2005 = births_prenat_inad_hsp_2005/births_w_prenat_hsp_2005; pct_inadcare_hsp_2006 = births_prenat_inad_hsp_2006/births_w_prenat_hsp_2006; pct_inadcare_hsp_2007 = births_prenat_inad_hsp_2007/births_w_prenat_hsp_2007; pct_inadcare_hsp_2008 = births_prenat_inad_hsp_2008/births_w_prenat_hsp_2008; pct_inadcare_hsp_2009 = births_prenat_inad_hsp_2009/births_w_prenat_hsp_2009; pct_inadcare_hsp_2010 = births_prenat_inad_hsp_2010/births_w_prenat_hsp_2010; pct_inadcare_hsp_2011 = births_prenat_inad_hsp_2011/births_w_prenat_hsp_2011; pct_inadcare_hsp_2012 = births_prenat_inad_hsp_2012/births_w_prenat_hsp_2012; pct_inadcare_hsp_2013 = births_prenat_inad_hsp_2013/births_w_prenat_hsp_2013; pct_inadcare_hsp_2014 = births_prenat_inad_hsp_2014/births_w_prenat_hsp_2014; pct_inadcare_hsp_2015 = births_prenat_inad_hsp_2015/births_w_prenat_hsp_2015; pct_inadcare_hsp_2016 = births_prenat_inad_hsp_2016/births_w_prenat_hsp_2016; 
-
-pct_inadcare_oth_2003 = births_prenat_inad_oth_2003/births_w_prenat_oth_2003;
-			pct_inadcare_oth_2004 = births_prenat_inad_oth_2004/births_w_prenat_oth_2004;
-			pct_inadcare_oth_2005 = births_prenat_inad_oth_2005/births_w_prenat_oth_2005;
-			pct_inadcare_oth_2006 = births_prenat_inad_oth_2006/births_w_prenat_oth_2006;
-			pct_inadcare_oth_2007 = births_prenat_inad_oth_2007/births_w_prenat_oth_2007;
-			pct_inadcare_oth_2008 = births_prenat_inad_oth_2008/births_w_prenat_oth_2008;
-			pct_inadcare_oth_2009 = births_prenat_inad_oth_2009/births_w_prenat_oth_2009;
-			pct_inadcare_oth_2010 = births_prenat_inad_oth_2010/births_w_prenat_oth_2010;
-			pct_inadcare_oth_2011 = births_prenat_inad_oth_2011/births_w_prenat_oth_2011;
-			pct_inadcare_oth_2012 = births_prenat_inad_oth_2012/births_w_prenat_oth_2012;
-			pct_inadcare_oth_2013 = births_prenat_inad_oth_2013/births_w_prenat_oth_2013; 
-			pct_inadcare_oth_2014 = births_prenat_inad_oth_2014/births_w_prenat_oth_2014;
-			pct_inadcare_oth_2015 = births_prenat_inad_oth_2015/births_w_prenat_oth_2015;
-			pct_inadcare_oth_2016 = births_prenat_inad_oth_2016/births_w_prenat_oth_2016;
 			/*Tanf and Snap by race*/
 
 			
@@ -771,20 +967,20 @@ pctfs_hsp_2003 = fs_hisp_2003/fs_w_race_2003; pctfs_hsp_2004 = fs_hisp_2004/fs_w
 			pctfs_wht_2014 = fs_white_2014/fs_w_race_2014;
 			pctfs_wht_2015 = fs_white_2015/fs_w_race_2015;
 			pctfs_wht_2016 = fs_white_2016/fs_w_race_2016;
-			pctfs_oth_2003 = fs_other_2003/fs_w_race_2003;
-			pctfs_oth_2004 = fs_other_2004/fs_w_race_2004;
-			pctfs_oth_2005 = fs_other_2005/fs_w_race_2005;
-			pctfs_oth_2006 = fs_other_2006/fs_w_race_2006;
-			pctfs_oth_2007 = fs_other_2007/fs_w_race_2007;
-			pctfs_oth_2008 = fs_other_2008/fs_w_race_2008;
-			pctfs_oth_2009 = fs_other_2009/fs_w_race_2009;
-			pctfs_oth_2010 = fs_other_2010/fs_w_race_2010;
-			pctfs_oth_2011 = fs_other_2011/fs_w_race_2011;
-			pctfs_oth_2012 = fs_other_2012/fs_w_race_2012;
-			pctfs_oth_2013 = fs_other_2013/fs_w_race_2013; 
-			pctfs_oth_2014 = fs_other_2014/fs_w_race_2014;
-			pctfs_oth_2015 = fs_other_2015/fs_w_race_2015;
-			pctfs_oth_2016 = fs_other_2016/fs_w_race_2016;
+			pctfs_oth_2003 = fs_oth_rac_2003/fs_w_race_2003;
+			pctfs_oth_2004 = fs_oth_rac_2004/fs_w_race_2004;
+			pctfs_oth_2005 = fs_oth_rac_2005/fs_w_race_2005;
+			pctfs_oth_2006 = fs_oth_rac_2006/fs_w_race_2006;
+			pctfs_oth_2007 = fs_oth_rac_2007/fs_w_race_2007;
+			pctfs_oth_2008 = fs_oth_rac_2008/fs_w_race_2008;
+			pctfs_oth_2009 = fs_oth_rac_2009/fs_w_race_2009;
+			pctfs_oth_2010 = fs_oth_rac_2010/fs_w_race_2010;
+			pctfs_oth_2011 = fs_oth_rac_2011/fs_w_race_2011;
+			pctfs_oth_2012 = fs_oth_rac_2012/fs_w_race_2012;
+			pctfs_oth_2013 = fs_oth_rac_2013/fs_w_race_2013; 
+			pctfs_oth_2014 = fs_oth_rac_2014/fs_w_race_2014;
+			pctfs_oth_2015 = fs_oth_rac_2015/fs_w_race_2015;
+			pctfs_oth_2016 = fs_oth_rac_2016/fs_w_race_2016;
 
 
 pcttanf_asi_2003 = tanf_asian_2003/tanf_w_race_2003; pcttanf_asi_2004 = tanf_asian_2004/tanf_w_race_2004; pcttanf_asi_2005 = tanf_asian_2005/tanf_w_race_2005; pcttanf_asi_2006 = tanf_asian_2006/tanf_w_race_2006; pcttanf_asi_2007 = tanf_asian_2007/tanf_w_race_2007; pcttanf_asi_2008 = tanf_asian_2008/tanf_w_race_2008; pcttanf_asi_2009 = tanf_asian_2009/tanf_w_race_2009; pcttanf_asi_2010 = tanf_asian_2010/tanf_w_race_2010; pcttanf_asi_2011 = tanf_asian_2011/tanf_w_race_2011; pcttanf_asi_2012 = tanf_asian_2012/tanf_w_race_2012; pcttanf_asi_2013 = tanf_asian_2013/tanf_w_race_2013; pcttanf_asi_2014 = tanf_asian_2014/tanf_w_race_2014; pcttanf_asi_2015 = tanf_asian_2015/tanf_w_race_2015; pcttanf_asi_2016 = tanf_asian_2016/tanf_w_race_2016; 
@@ -807,20 +1003,20 @@ pcttanf_hsp_2003 = tanf_hisp_2003/tanf_w_race_2003; pcttanf_hsp_2004 = tanf_hisp
 			pcttanf_wht_2015 = tanf_white_2015/tanf_w_race_2015;
 			pcttanf_wht_2016 = tanf_white_2016/tanf_w_race_2016;
 
-pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
-			pcttanf_oth_2004 = tanf_other_2004/tanf_w_race_2004;
-			pcttanf_oth_2005 = tanf_other_2005/tanf_w_race_2005;
-			pcttanf_oth_2006 = tanf_other_2006/tanf_w_race_2006;
-			pcttanf_oth_2007 = tanf_other_2007/tanf_w_race_2007;
-			pcttanf_oth_2008 = tanf_other_2008/tanf_w_race_2008;
-			pcttanf_oth_2009 = tanf_other_2009/tanf_w_race_2009;
-			pcttanf_oth_2010 = tanf_other_2010/tanf_w_race_2010;
-			pcttanf_oth_2011 = tanf_other_2011/tanf_w_race_2011;
-			pcttanf_oth_2012 = tanf_other_2012/tanf_w_race_2012;
-			pcttanf_oth_2013 = tanf_other_2013/tanf_w_race_2013; 
-			pcttanf_oth_2014 = tanf_other_2014/tanf_w_race_2014;
-			pcttanf_oth_2015 = tanf_other_2015/tanf_w_race_2015;
-			pcttanf_oth_2016 = tanf_other_2016/tanf_w_race_2016;
+			pcttanf_oth_2003 = tanf_oth_rac_2003/tanf_w_race_2003;
+			pcttanf_oth_2004 = tanf_oth_rac_2004/tanf_w_race_2004;
+			pcttanf_oth_2005 = tanf_oth_rac_2005/tanf_w_race_2005;
+			pcttanf_oth_2006 = tanf_oth_rac_2006/tanf_w_race_2006;
+			pcttanf_oth_2007 = tanf_oth_rac_2007/tanf_w_race_2007;
+			pcttanf_oth_2008 = tanf_oth_rac_2008/tanf_w_race_2008;
+			pcttanf_oth_2009 = tanf_oth_rac_2009/tanf_w_race_2009;
+			pcttanf_oth_2010 = tanf_oth_rac_2010/tanf_w_race_2010;
+			pcttanf_oth_2011 = tanf_oth_rac_2011/tanf_w_race_2011;
+			pcttanf_oth_2012 = tanf_oth_rac_2012/tanf_w_race_2012;
+			pcttanf_oth_2013 = tanf_oth_rac_2013/tanf_w_race_2013; 
+			pcttanf_oth_2014 = tanf_oth_rac_2014/tanf_w_race_2014;
+			pcttanf_oth_2015 = tanf_oth_rac_2015/tanf_w_race_2015;
+			pcttanf_oth_2016 = tanf_oth_rac_2016/tanf_w_race_2016;
 
 			**Population Change**;
 			
@@ -851,6 +1047,10 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			Pctchange_hsp_80_90 = (pophisp_1990-pophisp_1980)/pophisp_1980;
 			Pctchange_hsp_90_00 = (pophisp_2000-pophisp_1990)/pophisp_1990;
 			pctchange_hsp_00_10 = (pophisp_2010-pophisp_2000)/pophisp_2000;
+
+			Pctchange_alloth_80_90 =(shrnhj9n-SHRNHJ8N) / SHRNHJ8N;
+			Pctchange_alloth_90_00 =(shrnhj0n - shrnhj9n) /shrnhj9n;
+			Pctchange_alloth_00_10 =(shrnhj1n - shrnhj0n)/shrnhj0n;
 
 			/*gross rent*/
 
@@ -884,8 +1084,11 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			GrossRent3000_3499_2012_16 +
 			GrossRentGT3500_2012_16;
 
+			**Pop Age 18-64 Years Old 2012_16**;
+
+			pop18to64years_2012_16 = pop18_34years_2012_16 + pop35_64years_2012_16; 
+
 			**Age by race**;
-			
 			pctu18&_years. = popunder18years_2012_16/totpop&_years.;
 			pct18_34&_years. = pop18_34years_2012_16/totpop&_years.;
 			pct35_64&_years. = pop35_64years_2012_16/totpop&_years.;
@@ -916,6 +1119,46 @@ pcttanf_oth_2003 = tanf_other_2003/tanf_w_race_2003;
 			pct35_64aiom&_years. = pop35_64yearsaiom_2012_16/popaloneaiom_2012_16 ;
 			pcto65aiom&_years. = pop65andoveryearsaiom_2012_16/popaloneaiom_2012_16 ;
 
+			
+			**Income**; 
+
+			hshldincunder25000_2012_16 = hshldincunder10000_2012_16+ hshldinc10000to14999_2012_16 + hshldinc15000to19999_2012_16 + hshldinc20000to24999_2012_16; 
+			hshldinc25000to49999_2012_16 = hshldinc25000to29999_2012_16 + hshldinc30000to34999_2012_16 + hshldinc35000to39999_2012_16 + hshldinc40000to44999_2012_16 + hshldinc45000to49999_2012_16;
+			hshldinc75000to124999_2012_16 =  hshldinc75000to99999_2012_16 + hshldinc100000to124999_2012_16; 
+			hshldinc125000plus_2012_16 = hshldinc125000to149999_2012_16 + hshldinc150000to199999_2012_16 + hshldinc200000andover_2012_16; 
+			
+			pct_hshldincunder10000_2012_16 = hshldincunder10000_2012_16/numhshlds_2012_16;
+			pct_hshldincunder25000_2012_16 = hshldincunder25000_2012_16/numhshlds_2012_16;
+			pct_hshldinc25000to49999_2012_16 = hshldinc25000to49999_2012_16/numhshlds_2012_16;
+			pct_hshldinc50000to74999_2012_16 = hshldinc50000to74999_2012_16/numhshlds_2012_16;
+			pct_hshldinc75000124999_2012_16 = hshldinc75000to124999_2012_16/numhshlds_2012_16;
+			pct_hshldinc125000plus_2012_16 = hshldinc125000plus_2012_16/numhshlds_2012_16;
+
+			/*pct_hshldinc100000plus_2012_16 = hshldinc100000plus_2012_16/numhshlds_2012_16;
+			pct_hshldinc100000124999_2012_16 = hshldinc100000to124999_2012_16/numhshlds_2012_16;
+			pct_hshldinc10000to14999_2012_16 = hshldinc10000to14999_2012_16/numhshlds_2012_16;
+			pct_hshldinc125000149999_2012_16 = hshldinc125000to149999_2012_16/numhshlds_2012_16;
+			pct_hshldinc150000199999_2012_16 = hshldinc150000to199999_2012_16/numhshlds_2012_16;
+			pct_hshldinc15000to19999_2012_16 = hshldinc15000to19999_2012_16/numhshlds_2012_16;
+			pct_hshldinc15000to34999_2012_16 = hshldinc15000to34999_2012_16/numhshlds_2012_16;
+			pct_hshldinc200000over_2012_16 = hshldinc200000andover_2012_16/numhshlds_2012_16;
+			pct_hshldinc200000plus_2012_16 = hshldinc200000plus_2012_16/numhshlds_2012_16;
+			pct_hshldinc20000to24999_2012_16 = hshldinc20000to24999_2012_16/numhshlds_2012_16;
+			pct_hshldinc25000to29999_2012_16 = hshldinc25000to29999_2012_16/numhshlds_2012_16;
+			pct_hshldinc30000to34999_2012_16 = hshldinc30000to34999_2012_16/numhshlds_2012_16;
+			pct_hshldinc35000to39999_2012_16 = hshldinc35000to39999_2012_16/numhshlds_2012_16;
+			pct_hshldinc35000to49999_2012_16 = hshldinc35000to49999_2012_16/numhshlds_2012_16;
+			pct_hshldinc40000to44999_2012_16 = hshldinc40000to44999_2012_16/numhshlds_2012_16;
+			pct_hshldinc45000to49999_2012_16 = hshldinc45000to49999_2012_16/numhshlds_2012_16;
+			pct_hshldinc50000to59999_2012_16 = hshldinc50000to59999_2012_16/numhshlds_2012_16;
+			pct_hshldinc50000to74999_2012_16 = hshldinc50000to74999_2012_16/numhshlds_2012_16;
+			pct_hshldinc60000to74999_2012_16 = hshldinc60000to74999_2012_16/numhshlds_2012_16;
+			pct_hshldinc75000to99999_2012_16 = hshldinc75000to99999_2012_16/numhshlds_2012_16;
+			pct_hshldincunder10000_2012_16 = hshldincunder10000_2012_16/numhshlds_2012_16;
+			pct_hshldincunder15000_2012_16 = hshldincunder15000_2012_16/numhshlds_2012_16;*/
+
+
+
 label 
 
 		PctPoorPersons&_years. = "Poverty Rate"
@@ -936,9 +1179,9 @@ label
 		PctOwnerOccupiedHU&_years. = "Owner"
 		PctRenterOccupiedHU&_years. = "Renter"
 		PctRenterCostBurden&_years. = "Cost-Burdened Renter"
-		PctRentSevereCostBurden&_years. = "Severly Cost-Burdened Renter"
+		PctRentSevereCostBurden&_years. = "Severely Cost-Burdened Renter"
 		PctOwnerCostBurden&_years. = "Cost-Burdened Owner"
-		PctOwnSevereCostBurden&_years. = "Severly Cost Burdened Owner"
+		PctOwnSevereCostBurden&_years. = "Severely Cost Burdened Owner"
 		pctchange_80_90 = "Population Change 1980-1990"
 		pctchange_90_00 = "Population Change 1990-2000"
 		pctchange_00_10 = "Population Change 2000-2010"
@@ -963,10 +1206,125 @@ label
 		Pctchange_hsp_80_90 = "Latino Population Change 1980-1990"
 		Pctchange_hsp_90_00 = "Latino Population Change 1990-2000"
 		pctchange_hsp_00_10 = "Latino Population Change 2000-2010"
+
+		Pctchange_alloth_80_90 ="Asian, PI, Native, Other change 1980-1990"
+		Pctchange_alloth_90_00 ="Asian, PI, Native, Other change 1990-2000"
+		Pctchange_alloth_00_10 ="Asian, PI, Native, Other change 2000-2010"
+
+			/*pct_hshldinc100000plus_2012_16 = "Percent Households with Income $100,000 Plus" 
+			pct_hshldinc100000124999_2012_16 = "Percent Households with Income $100,000- $124,999" 
+			pct_hshldinc10000to14999_2012_16 = "Percent Households with Income $10,000-$14,999 " 
+			pct_hshldinc125000149999_2012_16 = "Percent Households with Income $125,000- $149,999" 
+			pct_hshldinc150000199999_2012_16 = "Percent Households with Income $150,000 - $199,999" 
+			pct_hshldinc15000to19999_2012_16 ="Percent Households with Income $15,000 -$19,999" 
+			pct_hshldinc15000to34999_2012_16 = "Percent Households with Income $15,000 -$34,999" 
+			pct_hshldinc200000over_2012_16 = "Percent Households with Income $200,000 and over" 
+			pct_hshldinc200000plus_2012_16 = "Percent Households with Income $200,000 Plus" 
+			pct_hshldinc20000to24999_2012_16 = "Percent Households with Income $20,000- $24,999" 
+			pct_hshldinc25000to29999_2012_16 = "Percent Households with Income $25,000- $29,999" 
+			pct_hshldinc30000to34999_2012_16 = "Percent Households with Income $30,000- $34,999" 
+			pct_hshldinc35000to39999_2012_16 ="Percent Households with Income $35,000- $39,999" 
+			pct_hshldinc35000to49999_2012_16 = "Percent Households with Income $35,000- $49,999" 
+			pct_hshldinc40000to44999_2012_16 = "Percent Households with Income $40,000- $44,999" 
+			pct_hshldinc45000to49999_2012_16 = "Percent Households with Income $45,000- $49,999" 
+			pct_hshldinc50000to59999_2012_16 ="Percent Households with Income $50,000- $59,999" 
+			pct_hshldinc50000to74999_2012_16 = "Percent Households with Income $50,000- $74,999" 
+			pct_hshldinc60000to74999_2012_16 ="Percent Households with Income $60,000- $74,999" 
+			pct_hshldinc75000to99999_2012_16 = "Percent Households with Income $75,000- $99,999" 
+			pct_hshldincunder10000_2012_16 = "Percent Households with Income under $10,000" 
+			pct_hshldincunder15000_2012_16 ="Percent Households with Income under $15,000" */
+
+			pct_hshldincunder10000_2012_16 = "Percent Households with Income under $10,000" 
+			pct_hshldincunder25000_2012_16 = "Percent Households with Income under $25,000"
+			pct_hshldinc25000to49999_2012_16 = "Percent Households with Income $25,000- $49,999"
+			pct_hshldinc50000to74999_2012_16 = "Percent Households with Income $50,000- $74,999"
+			pct_hshldinc75000124999_2012_16 = "Percent Households with Income $75,000- $124,999"
+			pct_hshldinc125000plus_2012_16 = "Percent Households with Income $125,000 and Over"
+
+			pctbirths_low_wt_2003 = "Percent Low Weight Births 2003" 
+			pctbirths_low_wt_2004 ="Percent Low Weight Births 2004" 
+			pctbirths_low_wt_2005 = "Percent Low Weight Births 2005" 
+			pctbirths_low_wt_2006 ="Percent Low Weight Births 2006" 
+			pctbirths_low_wt_2007 = "Percent Low Weight Births 2007" 
+			pctbirths_low_wt_2008 = "Percent Low Weight Births 2008" 
+			pctbirths_low_wt_2009 = "Percent Low Weight Births 2009" 
+			pctbirths_low_wt_2010 = "Percent Low Weight Births 2010" 
+			pctbirths_low_wt_2011 = "Percent Low Weight Births 2011" 
+			pctbirths_low_wt_2012 = "Percent Low Weight Births 2012" 
+			pctbirths_low_wt_2013 = "Percent Low Weight Births 2013" 
+			pctbirths_low_wt_2014 = "Percent Low Weight Births 2014" 
+			pctbirths_low_wt_2015 = "Percent Low Weight Births 2015" 
+			pctbirths_low_wt_2016 = "Percent Low Weight Births 2016" 
+
+			pctbirths_low_wt_asn_2003_05 = "Percent Low Weight Births 2003-05 (Asian)" 
+			pctbirths_low_wt_asn_2004_06 = "Percent Low Weight Births 2004-06 (Asian)" 
+			pctbirths_low_wt_asn_2005_07 = "Percent Low Weight Births 2005-07 (Asian)" 
+			pctbirths_low_wt_asn_2006_08 = "Percent Low Weight Births 2006-08 (Asian)" 
+			pctbirths_low_wt_asn_2007_09 = "Percent Low Weight Births 2007-09 (Asian)" 
+			pctbirths_low_wt_asn_2008_10 = "Percent Low Weight Births 2008-10 (Asian)"
+			pctbirths_low_wt_asn_2009_11 = "Percent Low Weight Births 2009-11 (Asian)"
+			pctbirths_low_wt_asn_2010_12 = "Percent Low Weight Births 2010-12 (Asian)"
+			pctbirths_low_wt_asn_2011_13 = "Percent Low Weight Births 2011-13 (Asian)"
+			pctbirths_low_wt_asn_2012_14 = "Percent Low Weight Births 2012-14 (Asian)"
+			pctbirths_low_wt_asn_2013_15 = "Percent Low Weight Births 2013-15 (Asian)"
+			pctbirths_low_wt_asn_2014_16 = "Percent Low Weight Births 2014-16 (Asian)"
+		
+			pctbirths_low_wt_blk_2003_05 = "Percent Low Weight Births 2003-05 (Black)" 
+			pctbirths_low_wt_blk_2004_06 = "Percent Low Weight Births 2004-06 (Black)" 
+			pctbirths_low_wt_blk_2005_07 = "Percent Low Weight Births 2005-07 (Black)" 
+			pctbirths_low_wt_blk_2006_08 = "Percent Low Weight Births 2006-08 (Black)"  
+			pctbirths_low_wt_blk_2007_09 = "Percent Low Weight Births 2007-09 (Black)" 
+			pctbirths_low_wt_blk_2008_10 = "Percent Low Weight Births 2008-10 (Black)" 
+			pctbirths_low_wt_blk_2009_11 = "Percent Low Weight Births 2009-11 (Black)" 
+			pctbirths_low_wt_blk_2010_12 = "Percent Low Weight Births 2010-12 (Black)"  
+			pctbirths_low_wt_blk_2011_13 = "Percent Low Weight Births 2011-13 (Black)" 
+			pctbirths_low_wt_blk_2012_14 = "Percent Low Weight Births 2012-14 (Black)" 
+			pctbirths_low_wt_blk_2013_15 = "Percent Low Weight Births 2013-15 (Black)"  
+			pctbirths_low_wt_blk_2014_16 = "Percent Low Weight Births 2014-16 (Black)" 
+	
+			pctbirths_low_wt_hsp_2003_05 = "Percent Low Weight Births 2003-05 (Hispanic)" 
+			pctbirths_low_wt_hsp_2004_06 = "Percent Low Weight Births 2004-06 (Hispanic)" 
+			pctbirths_low_wt_hsp_2005_07 = "Percent Low Weight Births 2005-07 (Hispanic)" 
+			pctbirths_low_wt_hsp_2006_08 = "Percent Low Weight Births 2006-08 (Hispanic)" 
+			pctbirths_low_wt_hsp_2007_09 = "Percent Low Weight Births 2007-09 (Hispanic)" 
+			pctbirths_low_wt_hsp_2008_10 = "Percent Low Weight Births 2008-10 (Hispanic)" 
+			pctbirths_low_wt_hsp_2009_11 = "Percent Low Weight Births 2009-11 (Hispanic)" 
+			pctbirths_low_wt_hsp_2010_12 = "Percent Low Weight Births 2010-12 (Hispanic)" 
+			pctbirths_low_wt_hsp_2011_13 = "Percent Low Weight Births 2011-13 (Hispanic)" 
+			pctbirths_low_wt_hsp_2012_14 = "Percent Low Weight Births 2012-14 (Hispanic)" 
+			pctbirths_low_wt_hsp_2013_15 = "Percent Low Weight Births 2013-15 (Hispanic)" 
+			pctbirths_low_wt_hsp_2014_16 = "Percent Low Weight Births 2014-16 (Hispanic)" 
+	
+			pctbirths_low_wt_oth_2003_05 = "Percent Low Weight Births 2003-05 (Other)" 
+			pctbirths_low_wt_oth_2004_06 = "Percent Low Weight Births 2004-06 (Other)" 
+			pctbirths_low_wt_oth_2005_07 = "Percent Low Weight Births 2005-07 (Other)"
+			pctbirths_low_wt_oth_2006_08 = "Percent Low Weight Births 2006-08 (Other)"
+			pctbirths_low_wt_oth_2007_09 = "Percent Low Weight Births 2007-09 (Other)"
+			pctbirths_low_wt_oth_2008_10 = "Percent Low Weight Births 2008-10 (Other)"
+			pctbirths_low_wt_oth_2009_11 = "Percent Low Weight Births 2009-11 (Other)"
+			pctbirths_low_wt_oth_2010_12 = "Percent Low Weight Births 2010-12 (Other)"
+			pctbirths_low_wt_oth_2011_13 = "Percent Low Weight Births 2011-13 (Other)"
+			pctbirths_low_wt_oth_2012_14 = "Percent Low Weight Births 2012-14 (Other)"
+			pctbirths_low_wt_oth_2013_15 = "Percent Low Weight Births 2013-15 (Other)"
+			pctbirths_low_wt_oth_2014_16 = "Percent Low Weight Births 2014-16 (Other)"
+
+			pctbirths_low_wt_wht_2003_05 = "Percent Low Weight Births 2003-05 (White)"
+			pctbirths_low_wt_wht_2004_06 = "Percent Low Weight Births 2004-06 (White)"
+			pctbirths_low_wt_wht_2005_07 = "Percent Low Weight Births 2005-07 (White)"
+			pctbirths_low_wt_wht_2006_08 = "Percent Low Weight Births 2006-08 (White)"
+			pctbirths_low_wt_wht_2007_09 = "Percent Low Weight Births 2007-09 (White)"
+			pctbirths_low_wt_wht_2008_10 = "Percent Low Weight Births 2008-10 (White)"
+			pctbirths_low_wt_wht_2009_11 = "Percent Low Weight Births 2009-11 (White)"
+			pctbirths_low_wt_wht_2010_12 = "Percent Low Weight Births 2010-12 (White)"
+			pctbirths_low_wt_wht_2011_13 = "Percent Low Weight Births 2011-13 (White)"
+			pctbirths_low_wt_wht_2012_14 = "Percent Low Weight Births 2012-14 (White)"
+			pctbirths_low_wt_wht_2013_15 = "Percent Low Weight Births 2013-15 (White)"
+			pctbirths_low_wt_wht_2014_16 = "Percent Low Weight Births 2014-16 (White)"
+	
 ; 
 
-if geography="1" then geography="Ward 1";
 if geography="2" then geography="Ward 2";
+if geography="5" then geography="Ward 5";
 if geography="6" then geography="Ward 6";
 
 run;
@@ -974,7 +1332,7 @@ run;
 **Transpose from wide to long data where observations are the indicators**;
 
 proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
-	var geography &acs_vars &ncdbold_vars &ncdb_vars &sales_vars &birth_vars &tanf_vars &fs_vars &unit_vars &price_vars &subs_vars &plan_vars
+	var geography &acs_vars &ncdbold_vars &ncdb_vars &ncdb_1980a &sales_vars &birth_vars &tanf_vars &fs_vars &unit_vars &price_vars &subs_vars &plan_vars
 		/*Race and ethnicity*/
 			PctWht&_years.
 			PctBlk&_years.
@@ -1044,7 +1402,97 @@ proc transpose data=compile_mvt_tabs_full out=mvt_tabs(label="MVT Tabulations");
 			violent_crime_rate_2014
 			violent_crime_rate_2015
 			violent_crime_rate_2016
-			violent_crime_rate_2017;
+			violent_crime_rate_2017
+
+		/*Household Income*/
+			pct_hshldincunder10000_2012_16 
+			pct_hshldincunder25000_2012_16 
+			pct_hshldinc25000to49999_2012_16 
+			pct_hshldinc50000to74999_2012_16 
+			pct_hshldinc75000124999_2012_16 
+			pct_hshldinc125000plus_2012_16
+
+		/*Low Birth Weight*/
+			pctbirths_low_wt_2003
+			pctbirths_low_wt_2004 
+			pctbirths_low_wt_2005 
+			pctbirths_low_wt_2006 
+			pctbirths_low_wt_2007 
+			pctbirths_low_wt_2008 
+			pctbirths_low_wt_2009
+			pctbirths_low_wt_2010
+			pctbirths_low_wt_2011 
+			pctbirths_low_wt_2012
+			pctbirths_low_wt_2013
+			pctbirths_low_wt_2014
+			pctbirths_low_wt_2015
+			pctbirths_low_wt_2016
+
+			pctbirths_low_wt_asn_2007_09
+			pctbirths_low_wt_asn_2008_10 
+			pctbirths_low_wt_asn_2009_11 
+			pctbirths_low_wt_asn_2010_12 
+			pctbirths_low_wt_asn_2011_13 
+			pctbirths_low_wt_asn_2012_14 
+			pctbirths_low_wt_asn_2013_15
+			pctbirths_low_wt_asn_2014_16
+			
+			pctbirths_low_wt_blk_2007_09
+			pctbirths_low_wt_blk_2008_10
+			pctbirths_low_wt_blk_2009_11
+			pctbirths_low_wt_blk_2010_12
+			pctbirths_low_wt_blk_2011_13
+			pctbirths_low_wt_blk_2012_14
+			pctbirths_low_wt_blk_2013_15 
+			pctbirths_low_wt_blk_2014_16
+					
+			pctbirths_low_wt_wht_2007_09 
+			pctbirths_low_wt_wht_2008_10 
+			pctbirths_low_wt_wht_2009_11 
+			pctbirths_low_wt_wht_2010_12 
+			pctbirths_low_wt_wht_2011_13 
+			pctbirths_low_wt_wht_2012_14 
+			pctbirths_low_wt_wht_2013_15 
+			pctbirths_low_wt_wht_2014_16
+
+			/*prenatal care*/
+			pctinad_care_2003
+			pctinad_care_2004
+			pctinad_care_2005
+			pctinad_care_2006
+			pctinad_care_2007
+			pctinad_care_2008
+			pctinad_care_2009
+			pctinad_care_2010
+			pctinad_care_2011
+			pctinad_care_2012
+			pctinad_care_2013
+			pctinad_care_2014
+			pctinad_care_2015
+			pctinad_care_2016
+
+			pctbirths_inadcare_asn_2009_11 
+			pctbirths_inadcare_asn_2010_12 
+			pctbirths_inadcare_asn_2011_13 
+			pctbirths_inadcare_asn_2012_14 
+			pctbirths_inadcare_asn_2013_15
+			pctbirths_inadcare_asn_2014_16
+			
+			pctbirths_inadcare_blk_2009_11
+			pctbirths_inadcare_blk_2010_12
+			pctbirths_inadcare_blk_2011_13
+			pctbirths_inadcare_blk_2012_14
+			pctbirths_inadcare_blk_2013_15 
+			pctbirths_inadcare_blk_2014_16
+					
+			pctbirths_inadcare_wht_2009_11 
+			pctbirths_inadcare_wht_2010_12 
+			pctbirths_inadcare_wht_2011_13 
+			pctbirths_inadcare_wht_2012_14 
+			pctbirths_inadcare_wht_2013_15 
+			pctbirths_inadcare_wht_2014_16
+		
+;
 id geography; 
 run; 
 
@@ -1053,7 +1501,7 @@ proc sort data = compile_mvt_tabs_full;
 run;
 
 
-ods tagsets.excelxp file="D:\Users\MCohen\Box Sync\MCohen\MVT Profile\mvtprofile.xls" 
+ods tagsets.excelxp file="&_dcdata_default_path.\MVT\prog\mvtprofile.xls" 
       options( sheet_interval='' );
 ods listing close;
 
@@ -1071,10 +1519,12 @@ proc print data= compile_mvt_tabs_full label noobs;
 		popwhitenonhispbridge_2000 popwhitenonhispbridge_2010 pophisp_1980 pophisp_1990 pophisp_2000 pophisp_2010
 		popnativeamnonhispbridge_1990 popnativeamnonhispbridge_2000 popnativeamnonhispbridge_2010 popothernonhispbridge_1990 
 		   popothernonhispbridge_2000 popothernonhispbridge_2010
+
+		  SHRNHJ8N  shrnhj9n shrnhj0n shrnhj1n
  
 		   Pctchange_blk_80_90 Pctchange_blk_90_00 pctchange_blk_00_10 Pctchange_asi_90_00 pctchange_asi_00_10 
 			Pctchange_wht_80_90 Pctchange_wht_90_00 pctchange_wht_00_10	Pctchange_hsp_80_90 Pctchange_hsp_90_00	pctchange_hsp_00_10
-			Pctchange_oth_90_00 pctchange_oth_00_10 Pctchange_nat_90_00 pctchange_nat_00_10 ;
+			Pctchange_oth_90_00 pctchange_oth_00_10 Pctchange_nat_90_00 pctchange_nat_00_10 Pctchange_alloth_80_90 Pctchange_alloth_90_00 Pctchange_alloth_00_10;
 run;
 
 ods tagsets.excelxp options( sheet_name="Curr Race");
@@ -1109,10 +1559,16 @@ proc print data= compile_mvt_tabs_full label noobs;
 PctOwnerOccupiedHU&_years. 	PctRenterOccupiedHU&_years.;
 run;
 
-ods tagsets.excelxp options( sheet_name="SF Home Price");
+ods tagsets.excelxp options( sheet_name="SF-Condo Median Price");
 proc print data= compile_mvt_tabs_full label noobs;
   var	geography 
 mprice:;
+run;
+
+ods tagsets.excelxp options( sheet_name="Condo Median Price");
+proc print data= compile_mvt_tabs_full label noobs;
+  var	geography 
+mCondoprice:;
 run;
 
 ods tagsets.excelxp options( sheet_name="Housing Burden");
@@ -1170,13 +1626,76 @@ proc print data= compile_mvt_tabs_full label noobs;
 			pctinad_care_2013
 			pctinad_care_2014
 			pctinad_care_2015
-			pctinad_care_2016;
+			pctinad_care_2016
+	
+		   pctbirths_inadcare_asn_2009_11 
+			pctbirths_inadcare_asn_2010_12 
+			pctbirths_inadcare_asn_2011_13 
+			pctbirths_inadcare_asn_2012_14 
+			pctbirths_inadcare_asn_2013_15
+			pctbirths_inadcare_asn_2014_16
+			
+			pctbirths_inadcare_blk_2009_11
+			pctbirths_inadcare_blk_2010_12
+			pctbirths_inadcare_blk_2011_13
+			pctbirths_inadcare_blk_2012_14
+			pctbirths_inadcare_blk_2013_15 
+			pctbirths_inadcare_blk_2014_16
+					
+			pctbirths_inadcare_wht_2009_11 
+			pctbirths_inadcare_wht_2010_12 
+			pctbirths_inadcare_wht_2011_13 
+			pctbirths_inadcare_wht_2012_14 
+			pctbirths_inadcare_wht_2013_15 
+			pctbirths_inadcare_wht_2014_16;
+
 run;
 
-ods tagsets.excelxp options( sheet_name="Births by Race Inad Prenat Care");
+ods tagsets.excelxp options( sheet_name="Low Weight Births by Race");
 proc print data= compile_mvt_tabs_full label noobs;
   var	geography
-			pct_inadcare_b: pct_inadcare_a: pct_inadcare_w: pct_inadcare_h: pct_inadcare_o:;
+			pctbirths_low_wt_2003
+			pctbirths_low_wt_2004 
+			pctbirths_low_wt_2005 
+			pctbirths_low_wt_2006 
+			pctbirths_low_wt_2007 
+			pctbirths_low_wt_2008 
+			pctbirths_low_wt_2009
+			pctbirths_low_wt_2010
+			pctbirths_low_wt_2011 
+			pctbirths_low_wt_2012
+			pctbirths_low_wt_2013
+			pctbirths_low_wt_2014
+			pctbirths_low_wt_2015
+			pctbirths_low_wt_2016
+
+			pctbirths_low_wt_asn_2007_09
+			pctbirths_low_wt_asn_2008_10 
+			pctbirths_low_wt_asn_2009_11 
+			pctbirths_low_wt_asn_2010_12 
+			pctbirths_low_wt_asn_2011_13 
+			pctbirths_low_wt_asn_2012_14 
+			pctbirths_low_wt_asn_2013_15
+			pctbirths_low_wt_asn_2014_16
+			
+			pctbirths_low_wt_blk_2007_09
+			pctbirths_low_wt_blk_2008_10
+			pctbirths_low_wt_blk_2009_11
+			pctbirths_low_wt_blk_2010_12
+			pctbirths_low_wt_blk_2011_13
+			pctbirths_low_wt_blk_2012_14
+			pctbirths_low_wt_blk_2013_15 
+			pctbirths_low_wt_blk_2014_16
+					
+			pctbirths_low_wt_wht_2007_09 
+			pctbirths_low_wt_wht_2008_10 
+			pctbirths_low_wt_wht_2009_11 
+			pctbirths_low_wt_wht_2010_12 
+			pctbirths_low_wt_wht_2011_13 
+			pctbirths_low_wt_wht_2012_14 
+			pctbirths_low_wt_wht_2013_15 
+			pctbirths_low_wt_wht_2014_16 ;
+
 run;
 
 ods tagsets.excelxp options( sheet_name="Crime Rates");
@@ -1215,12 +1734,22 @@ proc print data= compile_mvt_tabs_full label noobs;
 			grossrentover1500&_years.;
 run;
 
+ods tagsets.excelxp options( sheet_name="Income Categories");
+proc print data= compile_mvt_tabs_full label noobs;
+var geography 
+			pct_hshldincunder10000_2012_16 
+			pct_hshldincunder25000_2012_16 
+			pct_hshldinc25000to49999_2012_16 
+			pct_hshldinc50000to74999_2012_16 
+			pct_hshldinc75000124999_2012_16 
+			pct_hshldinc125000plus_2012_16; 
+run; 
+
 
 ods tagsets.excelxp close;
 ods listing;
 run;
 
-%File_info( data=compile_bpk_tabs2_&geosuf, contents=n, printobs=0 )
 
 proc export data=mvt_tabs
 	outfile="&_dcdata_default_path\MVT\Prog\mvt_tabs..csv"
